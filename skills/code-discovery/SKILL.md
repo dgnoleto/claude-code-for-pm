@@ -1,6 +1,6 @@
 ---
 name: code-discovery
-description: Use quando o usuário pedir para investigar, mapear ou documentar um repositório de código desconhecido, legado ou esquecido — incluindo levantar candidatos a código morto, código duplicado ou redundante. Aciona em pedidos como "ninguém lembra o que esse repositório faz", "mapeia esse código pra mim", "acha código morto/duplicado aqui", "faz um discovery desse projeto". NÃO use para refatorar, corrigir bugs ou implementar funcionalidades — esta skill é só de investigação e relatório.
+description: Use sempre que o usuário pedir para investigar, mapear, entender ou documentar um repositório de código desconhecido, legado, órfão ou esquecido — mesmo que ele não use as palavras "discovery" ou "mapear" explicitamente. Cobre pedidos como "ninguém lembra o que esse repositório faz", "herdei esse projeto e preciso entender antes de tocar", "acha código morto/duplicado/redundante aqui", "esse arquivo ainda é usado por alguma coisa?", ou "faz um discovery desse projeto". NÃO use para refatorar, corrigir bugs, implementar funcionalidades, ou documentar código novo/conhecido — esta skill é só de investigação e relatório sobre código que já existe e está em dúvida.
 ---
 
 # Code Discovery — Investigação de Repositórios Esquecidos
@@ -29,11 +29,13 @@ Se a resposta não for "o repositório como um todo", avise explicitamente que a
 
 Espere a resposta antes de continuar — não prossiga com leitura profunda sem essa confirmação.
 
-### Etapa 3 — Local de saída
+### Etapa 3 — Local de saída e formato
 
 Sugira um caminho padrão para salvar o relatório, por exemplo `discovery/AAAA-MM-DD-<tipo>-<escopo>.md` (onde `<tipo>` é mapeamento, codigo-morto, duplicacoes ou relatorio-final, e `<escopo>` é o que foi confirmado na etapa 2). Pergunte se o usuário confirma esse caminho ou prefere outro.
 
-Espere a confirmação antes de escrever qualquer arquivo.
+Pergunte também qual formato o usuário prefere: Markdown padrão, ou Obsidian Flavored Markdown (com properties no frontmatter, callouts e wikilinks) — relevante se ele lê esses relatórios no Obsidian. Se a skill `obsidian-markdown` também estiver disponível na sessão, prefira consultá-la para a sintaxe exata em vez de confiar só na referência rápida abaixo.
+
+Espere a confirmação de caminho e formato antes de escrever qualquer arquivo.
 
 ### Etapa 4 — Investigação (só depois das etapas acima)
 
@@ -47,7 +49,9 @@ Para cada achado, registre: localização exata (arquivo e linha/função), a ev
 
 ### Etapa 5 — Relatório
 
-Escreva o relatório no caminho confirmado na etapa 3, usando esta estrutura:
+Escreva o relatório no caminho confirmado na etapa 3, no formato escolhido.
+
+**Markdown padrão:**
 
 ```markdown
 # Relatório de Discovery — [nome do repositório/escopo]
@@ -75,8 +79,48 @@ Escreva o relatório no caminho confirmado na etapa 3, usando esta estrutura:
 [sugestões de investigar/validar — nunca de remover, refatorar ou alterar]
 ```
 
-Avise o usuário onde o arquivo foi salvo ao final.
+**Obsidian Flavored Markdown:** mesma estrutura de conteúdo acima, mas com properties no frontmatter (`title`, `date`, `tags`, `status`), callouts para achados fora do escopo e hipóteses, e wikilinks para outros relatórios relacionados do mesmo discovery (use o nome do arquivo sem extensão como destino do wikilink):
+
+```markdown
+---
+title: Discovery — [nome do repositório/escopo]
+date: [data atual]
+tags:
+  - discovery
+  - [tipo: mapeamento / codigo-morto / duplicacoes / relatorio-final]
+status: rascunho
+---
+
+# Discovery — [nome do repositório/escopo]
+
+**Escopo investigado:** [o que foi confirmado na etapa 2]
+
+## Achados confirmados
+[com evidência clara — arquivo, linha, commit]
+
+## Achados prováveis
+[heurística forte, mas sem confirmação humana ainda]
+
+> [!question] Hipóteses
+> [precisam de validação antes de virar conclusão]
+
+> [!warning] Fora do escopo (para outra rodada)
+> [qualquer coisa relevante encontrada fora do que foi confirmado]
+
+## Perguntas abertas para validar com o time
+[...]
+
+## Recomendação
+> [!important] Recomendações, não decisões
+> Nenhuma ação foi executada. [sugestões de investigar/validar]
+
+Relatório relacionado: [[AAAA-MM-DD-outro-tipo-escopo]]
+```
+
+Avise o usuário onde o arquivo foi salvo ao final, em qualquer um dos dois formatos.
 
 ## Referência
 
 A metodologia completa, incluindo prompts equivalentes para usar com outras IAs (ChatGPT, Gemini, Cursor), está documentada no [Code Discovery Toolkit](https://github.com/SEU-USUARIO/code-discovery-toolkit) — esta skill é a versão autônoma dessa mesma metodologia, pensada para o Claude Code.
+
+A sintaxe Obsidian usada na etapa 5 segue a skill [`obsidian-markdown`](https://github.com/kepano/obsidian-skills) (Steph Ango). A pasta `evals/` desta skill segue a metodologia de testes de gatilho do [`skill-creator`](https://github.com/anthropics/skills) (Anthropic).

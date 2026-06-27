@@ -1,0 +1,18 @@
+[
+  {"query": "esse repositório aqui tá rodando em produção mas ninguém do time lembra o que ele faz, dá pra investigar?", "should_trigger": true},
+  {"query": "mapeia os módulos desse projeto pra mim, é um sistema bem antigo e não tem documentação", "should_trigger": true},
+  {"query": "acho que tem várias funções que não são mais usadas nesse código, consegue achar candidatos a código morto?", "should_trigger": true},
+  {"query": "essa pasta utils/ parece ter um monte de coisa duplicada com a pasta helpers/, dá uma olhada e me diz o que se repete", "should_trigger": true},
+  {"query": "preciso fazer um discovery completo desse repo pra apresentar pro time amanhã", "should_trigger": true},
+  {"query": "esse sistema de cobrança não tem documentação nenhuma, ninguém sabe o que ele faz exatamente, ajuda a entender?", "should_trigger": true},
+  {"query": "será que esse arquivo legacy_billing.py ainda é usado por alguma coisa? parece que não tem nada chamando ele", "should_trigger": true},
+  {"query": "herdei esse projeto de outro time e preciso entender a arquitetura antes de tocar em qualquer coisa", "should_trigger": true},
+  {"query": "refatora essa função de validação, ela tá duplicada em dois lugares e quero deixar só uma versão", "should_trigger": false},
+  {"query": "corrige esse bug que tá dando erro 500 na rota /users", "should_trigger": false},
+  {"query": "esse README tá desatualizado, atualiza ele com as mudanças que a gente fez essa semana", "should_trigger": false},
+  {"query": "implementa um endpoint novo pra listar os pedidos cancelados", "should_trigger": false},
+  {"query": "explica como funciona esse algoritmo de ordenação na função sort_v2, linha por linha", "should_trigger": false},
+  {"query": "roda os testes desse projeto e me diz se algum tá falhando", "should_trigger": false},
+  {"query": "escreve a documentação técnica dessa API nova que acabei de criar", "should_trigger": false},
+  {"query": "apaga esse arquivo de configuração antigo, não usamos mais essa integração", "should_trigger": false}
+]

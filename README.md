@@ -19,17 +19,23 @@ Este repositório aqui é diferente de propósito: ele é centrado numa ferramen
 | Pasta | Conteúdo | Pra quem |
 |---|---|---|
 | `guia-instalacao/` | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos | Qualquer pessoa, mesmo sem experiência técnica |
-| `skills/code-discovery/` | A skill real do Claude Code, no formato `SKILL.md` que a própria IA reconhece e aciona automaticamente | Quem já tem o Claude Code instalado |
+| `skills/code-discovery/` | A skill real do Claude Code, no formato `SKILL.md` que a própria IA reconhece e aciona automaticamente. Pode gerar o relatório em Markdown padrão ou em formato Obsidian | Quem já tem o Claude Code instalado |
 
 ## Glossário rápido
 
 - **Claude Code**: uma ferramenta da Anthropic que roda no terminal (ou num app, se preferir interface gráfica) e consegue ler, entender e trabalhar com o código de um repositório de forma autônoma.
 - **Skill**: uma pasta com um arquivo `SKILL.md` que ensina o Claude Code a fazer algo específico. A própria IA decide quando usar uma skill, com base na descrição dela — você não precisa "ativar" nada manualmente toda vez.
 - **Terminal**: o programa de linha de comando (PowerShell no Windows, Terminal no Mac) onde você digita comandos em vez de clicar em botões.
+- **Obsidian Flavored Markdown**: a sintaxe estendida que o Obsidian usa por cima do Markdown comum — wikilinks (`[[nota]]`), callouts (caixas de destaque) e properties (metadados no topo do arquivo). A skill `code-discovery` oferece essa formatação como opção pra quem lê os relatórios no Obsidian.
 
 ## Princípios (os mesmos do toolkit original)
 
 A skill segue exatamente os mesmos princípios do Code Discovery Toolkit: não inventar conclusões sem evidência, não refatorar ou alterar código sem autorização explícita, e não sair do escopo que foi confirmado com a pessoa.
+
+## Inspirações e referências
+
+- [**obsidian-skills**](https://github.com/kepano/obsidian-skills) (Steph Ango) — skills de referência para sintaxe Obsidian (wikilinks, callouts, properties). A skill `code-discovery` deste repositório usa essa sintaxe na opção de relatório em Obsidian Flavored Markdown.
+- [**skills**](https://github.com/anthropics/skills) (Anthropic) — especificação oficial do formato Skill e o `skill-creator`, cuja metodologia de testes de gatilho foi usada para refinar a `description` da skill `code-discovery` (veja `skills/code-discovery/evals/`).
 
 ## Autor
 
