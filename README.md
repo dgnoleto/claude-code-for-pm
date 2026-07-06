@@ -16,10 +16,11 @@ Este repositório aqui é diferente de propósito: ele é centrado numa ferramen
 
 ## O que tem aqui
 
-| Pasta | Conteúdo | Pra quem |
-|---|---|---|
-| `guia-instalacao/` | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos | Qualquer pessoa, mesmo sem experiência técnica |
-| `skills/code-discovery/` | A skill real do Claude Code, no formato `SKILL.md` que a própria IA reconhece e aciona automaticamente. Pode gerar o relatório em Markdown padrão ou em formato Obsidian | Quem já tem o Claude Code instalado |
+| Pasta                     | Conteúdo                                                                                                                                                                 | Pra quem                                       |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
+| `guia-instalacao/`        | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos                                                                                            | Qualquer pessoa, mesmo sem experiência técnica |
+| `skills/code-discovery/`  | A skill real do Claude Code, no formato `SKILL.md` que a própria IA reconhece e aciona automaticamente. Pode gerar o relatório em Markdown padrão ou em formato Obsidian | Quem já tem o Claude Code instalado            |
+| `skills/code-discovery/`  | ... (manter descrição atual) + "Gera relatório em Markdown padrão ou Obsidian. Ao instalar no repo investigado como `AGENTS.md`, funciona também com Cursor e Copilot."  | Quem já tem o Claude Code instalado            |
 
 ## Glossário rápido
 
@@ -36,6 +37,7 @@ A skill segue exatamente os mesmos princípios do Code Discovery Toolkit: não i
 
 - [**obsidian-skills**](https://github.com/kepano/obsidian-skills) (Steph Ango) — skills de referência para sintaxe Obsidian (wikilinks, callouts, properties). A skill `code-discovery` deste repositório usa essa sintaxe na opção de relatório em Obsidian Flavored Markdown.
 - [**skills**](https://github.com/anthropics/skills) (Anthropic) — especificação oficial do formato Skill e o `skill-creator`, cuja metodologia de testes de gatilho foi usada para refinar a `description` da skill `code-discovery` (veja `skills/code-discovery/evals/`).
+-  [**agency-agents-app**](https://github.com/msitarzewski/agency-agents-app) — inspirou o template `AGENTS-discovery-template.md` disponível no [Code Discovery Toolkit](https://github.com/SEU-USUARIO/code-discovery-toolkit): o formato AGENTS.md e o conceito de "Approval Gates" foram adaptados para blindar o repositório investigado contra alterações não autorizadas em qualquer ferramenta agêntica compatível.
 
 ## Autor
 
