@@ -1,42 +1,63 @@
-# Instalar a skill `code-discovery`
+# Instalar o PM Skill Pack (Skills para PMs)
 
-Uma Skill do Claude Code é só uma pasta com um arquivo `SKILL.md` dentro. O próprio Claude Code lê esse arquivo, entende quando deve usar aquela skill, e aciona ela automaticamente quando você pedir algo relacionado — sem precisar digitar nenhum comando especial.
+Uma Skill do Claude Code é uma pasta com um arquivo `SKILL.md` dentro. O Claude Code lê estes arquivos automaticamente e decide qual skill acionar com base na sua pergunta — sem que você precise digitar nenhum comando especial.
 
-Existem dois lugares onde uma skill pode morar, e a diferença importa:
+Este repositório fornece um **PM Skill Pack** com 4 habilidades essenciais:
+1. `code-discovery`: Mapeamento de repositórios legados/desconhecidos.
+2. `business-rules-extractor`: Extração de regras de negócio ocultas no código.
+3. `feature-impact-analysis`: Análise de impacto técnico de novas features antes do refinamento.
+4. `tech-debt-evaluator`: Diagnóstico de débitos técnicos e tradução em riscos/ROI.
+
+Existem dois locais onde uma skill pode morar:
 
 | Tipo | Onde fica | Quem tem acesso |
 |---|---|---|
-| **Pessoal** | `~/.claude/skills/` (uma pasta no seu usuário) | Só você, em qualquer repositório que você abrir |
-| **De projeto** | `.claude/skills/` (na raiz do repositório) | Todo mundo que clonar aquele repositório específico |
+| **Pessoal (Global)** | `~/.claude/skills/` (pasta no seu usuário do computador) | Só você, em qualquer repositório que abrir no terminal |
+| **De Projeto (Local)** | `.claude/skills/` (na raiz do repositório investigado) | Todos do time que clonarem aquele repositório específico |
 
-## Opção A — Instalar como skill pessoal (recomendado pra começar)
+---
 
-1. Copie a pasta `skills/code-discovery` deste repositório.
-2. Cole dentro da pasta `~/.claude/skills/` no seu computador. Se essa pasta não existir ainda, crie ela.
-   - No Windows, o caminho completo costuma ser algo como `C:\Users\SeuUsuario\.claude\skills\code-discovery`.
-   - No Mac, costuma ser `/Users/SeuUsuario/.claude/skills/code-discovery`.
-3. Se o Claude Code já estava rodando, rode `/clear` ou inicie uma sessão nova pra ele reconhecer a skill nova.
+## Opção A — Instalar como skills pessoais (recomendado para uso diário)
 
-Pronto — a partir de agora, em qualquer repositório que você abrir com `claude`, a skill `code-discovery` vai estar disponível.
+Se você quer ter acesso a todas as 4 skills em qualquer projeto que abrir no seu computador:
 
-## Opção B — Instalar como skill de projeto (pra compartilhar com o time)
+1. **Localize a pasta de skills pessoais** no seu computador. Se ela não existir, crie-a:
+   - **No Windows:** `C:\Users\SeuUsuario\.claude\skills\`
+   - **No Mac:** `/Users/SeuUsuario/.claude/skills/`
+2. **Copie as 4 pastas** que estão dentro da pasta `skills/` deste repositório (`code-discovery`, `business-rules-extractor`, `feature-impact-analysis`, `tech-debt-evaluator`).
+3. **Cole todas elas** dentro da pasta `skills/` do seu computador. O resultado deve ser:
+   - `~/.claude/skills/code-discovery/SKILL.md`
+   - `~/.claude/skills/business-rules-extractor/SKILL.md`
+   - `~/.claude/skills/feature-impact-analysis/SKILL.md`
+   - `~/.claude/skills/tech-debt-evaluator/SKILL.md`
+4. Se o Claude Code já estava rodando, execute `/clear` ou reinicie a sessão para carregar as novas skills.
 
-Se você quer que todo mundo que clonar um repositório específico já tenha essa skill disponível:
+---
 
-1. Dentro da pasta desse repositório (a raiz, onde fica o `.git`), crie a pasta `.claude/skills/` se ela não existir.
-2. Copie a pasta `code-discovery` (de dentro de `skills/` neste repositório) para dentro de `.claude/skills/`.
-3. Faça commit e push dessa pasta — assim, quando outra pessoa clonar o repositório, ela já recebe a skill junto.
+## Opção B — Instalar como skills de projeto (para compartilhar com o time)
+
+Se você deseja que todos os desenvolvedores e PMs que trabalham em um projeto específico usem o mesmo padrão de discovery e documentação:
+
+1. Vá até a pasta raiz do repositório em que o time trabalha.
+2. Crie a estrutura `.claude/skills/` na raiz do projeto (onde fica o arquivo `.git`).
+3. Copie as pastas das skills deste repositório para lá.
+4. Faça commit e push da pasta `.claude/` para o repositório Git do time.
+
+---
 
 ## Como confirmar que funcionou
 
-Dentro de uma sessão do Claude Code, peça algo que combine com o propósito da skill, por exemplo:
+Inicie o Claude Code e pergunte algo que acione uma das habilidades do pacote:
 
+```text
+# Para testar a extração de regras
+Quais as regras de validação aplicadas no checkout deste projeto?
+
+# Para testar o impacto de feature
+Se eu quiser adicionar pagamento por Pix parcelado, o que isso afeta?
 ```
-Esse repositório está abandonado e ninguém lembra o que ele faz. Pode investigar?
-```
 
-Se a skill foi reconhecida, o Claude Code deve seguir o fluxo dela: fazer uma varredura leve primeiro, e te perguntar o escopo antes de aprofundar — exatamente como os prompts do Code Discovery Toolkit fazem, só que de forma automática.
+Se a IA foi configurada corretamente, ela identificará a skill e seguirá o fluxo estruturado (como varredura leve, solicitação de documentos de apoio e confirmação de escopo) antes de aprofundar a análise.
 
-Se isso não acontecer, confira:
-- Se o arquivo está exatamente em `.claude/skills/code-discovery/SKILL.md` (ou `~/.claude/skills/code-discovery/SKILL.md` pro modo pessoal).
-- Se você iniciou uma sessão nova depois de copiar a pasta.
+Se a IA responder como um chat comum, certifique-se de que os arquivos `SKILL.md` estão localizados exatamente no caminho correto e que você reiniciou a sessão do Claude Code.
+
