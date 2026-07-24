@@ -43,7 +43,8 @@ Se você é PM, escolher a ferramenta certa para cada momento acelera o seu dia 
 | **Como lê o código** | **Autônomo (Local):** Ele busca, entra nas pastas e lê sozinho os arquivos necessários. | **Manual:** Você precisa copiar e colar os arquivos ou subir arquivos zipados. | **IDE Completa:** Roda dentro de uma interface de desenvolvedor. |
 | **UX para o PM** | **Terminal Conversacional:** Sem menus complexos. Basta digitar comandos e conversar. | **Interface de Chat:** Simples, mas cansativa para repositórios grandes. | **Curva de Aprendizado:** Média/Alta. Pode assustar quem não usa IDEs. |
 | **Limites de Token** | **Otimizado:** Varreduras inteligentes economizam tokens e evitam estourar a memória. | **Desperdício:** Enviar arquivos inteiros consome sua cota rapidamente. | **Variável:** Depende do indexador e das configurações da IDE. |
-| **Segurança (Código)** | **Trava de Escrita:** Bloqueado via instruções de sistema para nunca alterar arquivos. | **100% Seguro:** Não tem acesso físico para alterar arquivos locais. | **Risco de Escrita:** Pode alterar arquivos facilmente com um clique errado. |
+| **Segurança (Alterar Código)** | **Sob Controle:** Roda no seu terminal local. Você precisa aprovar manualmente comandos de escrita. | **Total:** Não tem acesso físico ao seu computador ou repositório para alterar arquivos. | **Risco de Escrita:** Pode alterar ou corromper arquivos facilmente com um clique errado se não tomar cuidado. |
+| **Privacidade dos Dados** | **Alta:** Dados trafegam via API da Anthropic. Contas comerciais/API não usam seus dados para treinar modelos por padrão. | **Atenção (Risco):** Chats em contas gratuitas/comuns usam suas mensagens para treinar a IA, trazendo risco de vazamento de segredos comerciais. | **Configurável:** Permite ativar o "Privacy Mode" nas configurações para evitar que seu código seja enviado para treinamento. |
 
 ---
 
