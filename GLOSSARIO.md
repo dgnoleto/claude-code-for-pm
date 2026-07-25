@@ -95,7 +95,7 @@ Conceitos essenciais de arquitetura e tecnologia para o PM entender onde a regra
 
 ### **ORM (Object-Relational Mapping)**
 * **O que é**: Uma biblioteca (ex: Prisma, TypeORM, Hibernate) que traduz tabelas do banco de dados em classes e objetos diretamente no código de programação.
-* **No Claude Code**: Como o código moderna raramente usa SQL puro, saber que o sistema usa ORM guia o Claude a procurar as definições de dados nos arquivos de modelo (Models/Entities).
+* **No Claude Code**: Como o código moderno raramente usa SQL puro, saber que o sistema usa ORM guia o Claude a procurar as definições de dados nos arquivos de modelo (Models/Entities).
 
 ### **Testes Unitários, de Integração e End-to-End (E2E)**
 * **Unitários**: Testam uma função ou comportamento isolado no código.
@@ -116,7 +116,7 @@ Conceitos essenciais de arquitetura e tecnologia para o PM entender onde a regra
 * **No Claude Code**: Permite ao PM prever e estimar o tempo real de publicação de uma correção ou feature a partir do momento em que o código é aprovado pelo time de engenharia.
 
 ### **Débito Técnico (Technical Debt)**
-* **O que é**: O custo acumulado de escolher soluções rápidas ou improvisadas no passado em vez de uma arquitetura limpa. Como um empréstimo financeiro, o débito técnico acumula "juros" na forma de lentidão, bugs frequentes e dificuldade de lançar novas features.
+* **O que é**: O custo acumulado de escolhas rápidas ou improvisadas no passado em vez de uma arquitetura limpa. Como um empréstimo financeiro, o débito técnico acumula "juros" na forma de lentidão, bugs frequentes e dificuldade de lançar novas features.
 * **No Claude Code**: O PM usa a skill `tech-debt-evaluator` para auditar de forma visual onde estão as piores seções de código e traduzir esse atraso em termos de ROI de refatoração para a gestão de negócios.
 
 ### **Código Morto (Dead Code)**
@@ -141,7 +141,7 @@ Conceitos essenciais de arquitetura e tecnologia para o PM entender onde a regra
 
 ## 📋 3. Gestão de Produtos Digitais & Metodologias Ágeis
 
-Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, Metologias tradicionais).
+Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, metodologias tradicionais).
 
 ### **Product Discovery (Descoberta de Produto)**
 * **O que é**: O processo contínuo de entender os problemas reais dos usuários, validar hipóteses e encontrar a solução correta antes de começar a codificar. Divide-se em *Discovery de Negócio* (desejo do usuário, valor comercial) e *Discovery Técnico* (viabilidade e riscos arquiteturais).
@@ -150,10 +150,6 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, Metolo
 ### **Scrum & Sprint Planning**
 * **O que é**: Scrum é um framework ágil para gestão e desenvolvimento de projetos de software baseados em ciclos rápidos de entrega (Sprints). A *Sprint Planning* é a reunião de planejamento das tarefas a serem executadas no ciclo.
 * **No Claude Code**: Ao rodar a skill `feature-impact-analysis` antes da planning, o PM consegue entender quais arquivos e módulos serão alterados no código. Isso torna a estimativa de esforço (Story Points) do time de engenharia muito mais precisa e diminui o risco de atrasos.
-
-### **Scrum Daily (Daily Standup / Alinhamento Diário)**
-* **O que é**: Reunião diária de até 15 minutos onde o time alinha o progresso do dia anterior, os planos para o dia de hoje e identifica impedimentos técnicos.
-* **No Claude Code**: O PM pode usar o Claude para resumir de forma simplificada o progresso de tarefas de discovery técnico complexas ou para traduzir rapidamente um bloqueio relatado por um desenvolvedor em linguagem de impacto para o negócio.
 
 ### **User Story (História de Usuário) & Critérios de Aceite**
 * **User Story**: Descrição informal de uma funcionalidade sob a perspectiva do usuário final (ex: *"Como um [papel], eu quero [ação] para [valor]"*).
@@ -190,11 +186,11 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, Metolo
 
 ### **Stakeholders (Partes Interessadas)**
 * **O que é**: Qualquer pessoa ou área impactada pelo produto (clientes, diretores, time de vendas, marketing, jurídico).
-* **No Claude Code**: Ajuda o PM a alinhar expectativas com o jurídico e comercial ao extrair regras de negócio ocultas do código (ex: regras de reembolso ou segurança) e traduzi-las em relatórios simples, evitando promessas de entrega impossíveis.
+* **No Claude Code**: Ao extrair regras de negócio ocultas do código (ex: regras de reembolso, elegibilidade ou segurança), o PM consegue apresentar ao jurídico e ao comercial o que o sistema *realmente* faz — não o que a documentação desatualizada diz — evitando promessas de entrega incompatíveis com a arquitetura atual.
 
 ### **Key User / Power User (Usuário-Chave)**
 * **O que é**: Usuários finais que utilizam o produto com extrema frequência e dominam suas regras de uso, sendo essenciais para validar refinamentos de regras de negócio.
-* **No Claude Code**: O PM pode rodar a IA para cruzar o fluxo técnico mapeado no código com os relatos do Key User, descobrindo se há caminhos lógicos "obscuros" na aplicação que os usuários estão usando no dia a dia.
+* **No Claude Code**: O PM pode cruzar os relatos do Key User ("o sistema faz X em tal situação") com o código mapeado pelo Claude, confirmando se esse comportamento está de fato programado ou se é um workaround que o usuário descobriu — o que são conclusões completamente diferentes para o backlog.
 
 ### **Priorização de Backlog (RICE / WSJF)**
 * **O que é**: A atividade de ordenar os itens de trabalho com base em esforço, impacto, valor e urgência.
@@ -219,7 +215,7 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, Metolo
 * **No Claude Code**: O PM pode gerar cenários de teste automatizados ou de UAT baseando-se nos fluxos descobertos pelas skills, garantindo que nenhum cenário de exceção do código original seja esquecido pelo time de QA.
 
 ### **SLA (Service Level Agreement) & SLO (Service Level Objective)**
-* **SLA**: O acordo oficial de nível de serviço com o cliente (ex: o sistema de pagamento precisa ter 99.9% de uptime).
+* **SLA**: O acordo oficial de nível de serviço com o cliente (ex: o sistema de pagamento precisa ter 99,9% de uptime).
 * **SLO**: A meta técnica interna que sustenta o SLA.
 * **No Claude Code**: A skill `tech-debt-evaluator` ajuda o PM a auditar gargalos de performance e de latência no código (como queries pesadas) que colocam em risco o cumprimento do SLA.
 
