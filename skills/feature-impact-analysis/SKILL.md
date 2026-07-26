@@ -19,7 +19,7 @@ Esta skill ajuda Product Managers a anteciparem a complexidade e o risco técnic
 
 Use Glob para mapear a estrutura física do repositório. 
 
-**Importante (Cruzamento de Contexto):** Busque ativamente por documentação técnica de arquitetura, esquemas de banco de dados (`schema.sql`, `prisma.schema`), diagramas ou PRDs anteriores na pasta. A combinação de *código-fonte + documentação legada* garante uma análise com **93% a 97% de precisão** sobre quais fluxos serão impactados pelas novas ideias de produto.
+**Importante (Cruzamento de Contexto):** Busque ativamente por documentação técnica de arquitetura, esquemas de banco de dados (`schema.sql`, `prisma.schema`), diagramas ou PRDs anteriores na pasta. A combinação de *código-fonte + documentação legada* elevou a precisão da análise de impacto para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B de média complexidade. Repositórios com menor cobertura de documentação técnica podem apresentar resultados diferentes.
 
 NÃO faça leitura profunda de códigos ainda.
 

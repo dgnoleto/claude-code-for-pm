@@ -1,0 +1,18 @@
+[
+  {"query": "se eu quiser criar um Pix Parcelado, o que isso afeta no código?", "should_trigger": true},
+  {"query": "faz uma análise de impacto dessa PRD no repositório", "should_trigger": true},
+  {"query": "onde eu mexeria no código para adicionar um campo de documento fiscal na nota?", "should_trigger": true},
+  {"query": "quero adicionar autenticação por biometria — o que precisa mudar no sistema?", "should_trigger": true},
+  {"query": "se eu mudar a regra de desconto de 10% para 15%, o que é afetado no código?", "should_trigger": true},
+  {"query": "preciso mapear quais arquivos são tocados se eu criar uma feature de assinatura recorrente", "should_trigger": true},
+  {"query": "antes do refinamento, quero saber a complexidade técnica de implementar essa nova feature", "should_trigger": true},
+  {"query": "essa PRD vai impactar quais módulos do sistema?", "should_trigger": true},
+  {"query": "implementa essa feature de Pix Parcelado com base nessa spec", "should_trigger": false},
+  {"query": "quais as regras de desconto atuais no checkout?", "should_trigger": false},
+  {"query": "o que esse repositório abandonado faz? ninguém lembra mais", "should_trigger": false},
+  {"query": "tem débito técnico no módulo de pagamentos?", "should_trigger": false},
+  {"query": "revisa essa PRD por questões de segurança", "should_trigger": false},
+  {"query": "questiona essa spec como um arquiteto sênior", "should_trigger": false},
+  {"query": "me explica como funciona a regra de frete atual", "should_trigger": false},
+  {"query": "refatora esse controller de pagamentos para melhorar a performance", "should_trigger": false}
+]

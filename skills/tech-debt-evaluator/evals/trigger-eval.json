@@ -1,0 +1,18 @@
+[
+  {"query": "faz um diagnóstico de débito técnico desse repositório", "should_trigger": true},
+  {"query": "onde estão as maiores gambiarras desse código?", "should_trigger": true},
+  {"query": "avalia a qualidade do módulo de checkout", "should_trigger": true},
+  {"query": "preciso de argumentos para convencer a diretoria a refatorar esse sistema legado", "should_trigger": true},
+  {"query": "esse código tem muitos code smells?", "should_trigger": true},
+  {"query": "quero saber quais partes do código vão me dar mais dor de cabeça no futuro", "should_trigger": true},
+  {"query": "o time de dev sempre reclama desse módulo — o que há de errado nele?", "should_trigger": true},
+  {"query": "tem alguma parte do código que pode travar em produção com aumento de carga?", "should_trigger": true},
+  {"query": "refatora o módulo de pagamentos para limpar o débito técnico", "should_trigger": false},
+  {"query": "quais as regras de negócio do módulo de frete?", "should_trigger": false},
+  {"query": "tem alguma brecha de segurança nesse código?", "should_trigger": false},
+  {"query": "o que esse repositório legado faz? ninguém lembra mais", "should_trigger": false},
+  {"query": "se eu criar uma feature de Pix Parcelado, o que é afetado?", "should_trigger": false},
+  {"query": "questiona minha spec como um dev backend sênior", "should_trigger": false},
+  {"query": "melhora a performance dessa query SQL", "should_trigger": false},
+  {"query": "esse sistema escala bem para suportar a nova feature de notificações em tempo real?", "should_trigger": false}
+]

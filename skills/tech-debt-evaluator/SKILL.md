@@ -19,7 +19,7 @@ Esta skill audita o código em busca de "gambiarras", complexidade excessiva e c
 
 Use Glob para mapear a estrutura física do repositório.
 
-**Importante (Cruzamento de Contexto):** Procure ativamente por arquivos de histórico de bugs, logs, issues relatadas, documentação de arquitetura antiga ou PRDs da primeira versão. A combinação de *código-fonte + histórico de problemas documentados* aumenta a precisão do diagnóstico de débito técnico para a faixa de **93% a 97%**, identificando exatamente os gargalos crônicos do sistema.
+**Importante (Cruzamento de Contexto):** Procure ativamente por arquivos de histórico de bugs, logs, issues relatadas, documentação de arquitetura antiga ou PRDs da primeira versão. A combinação de *código-fonte + histórico de problemas documentados* elevou a precisão do diagnóstico de débito técnico para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B com histórico de issues e PRDs disponíveis. Projetos sem histórico documentado podem apresentar resultados diferentes.
 
 NÃO faça leitura profunda de códigos ainda.
 

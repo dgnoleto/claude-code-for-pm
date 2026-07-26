@@ -1,0 +1,18 @@
+[
+  {"query": "tem alguma brecha de segurança nesse módulo?", "should_trigger": true},
+  {"query": "revisa essa PRD por questões de segurança", "should_trigger": true},
+  {"query": "o que pode dar errado do ponto de vista de segurança nessa feature?", "should_trigger": true},
+  {"query": "esse código está seguro antes de a gente lançar?", "should_trigger": true},
+  {"query": "quais os riscos de segurança que preciso resolver antes de ir pra produção?", "should_trigger": true},
+  {"query": "tem algum endpoint sem autenticação que não deveria estar exposto?", "should_trigger": true},
+  {"query": "esse formulário valida os inputs do usuário antes de salvar no banco?", "should_trigger": true},
+  {"query": "pode ter IDOR nessa rota de consulta de pedidos por ID?", "should_trigger": true},
+  {"query": "corrige a vulnerabilidade de SQL injection nessa query", "should_trigger": false},
+  {"query": "como funciona a lógica de permissões nesse sistema?", "should_trigger": false},
+  {"query": "o módulo de autenticação tem débito técnico?", "should_trigger": false},
+  {"query": "o que esse módulo de segurança faz? ninguém aqui sabe", "should_trigger": false},
+  {"query": "se eu adicionar 2FA, o que muda no código?", "should_trigger": false},
+  {"query": "questiona minha spec de autenticação como um arquiteto sênior", "should_trigger": false},
+  {"query": "tem código duplicado no módulo de auth?", "should_trigger": false},
+  {"query": "quais as regras de validação de senha que o sistema exige hoje?", "should_trigger": false}
+]

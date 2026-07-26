@@ -1,0 +1,18 @@
+[
+  {"query": "quais as regras de frete desse checkout?", "should_trigger": true},
+  {"query": "como funciona o cálculo de desconto por cupom no código?", "should_trigger": true},
+  {"query": "me explica a lógica desse validador de CPF", "should_trigger": true},
+  {"query": "extrai as regras desse módulo de precificação para uma PRD", "should_trigger": true},
+  {"query": "quero entender as condições que tornam um usuário elegível para desconto VIP", "should_trigger": true},
+  {"query": "o código tem alguma regra de juros para pagamento parcelado?", "should_trigger": true},
+  {"query": "me diz o que acontece quando um pedido é cancelado — quais regras são acionadas?", "should_trigger": true},
+  {"query": "tem alguma lógica de validação antes de aprovar um cadastro?", "should_trigger": true},
+  {"query": "cria uma nova regra de desconto para o plano anual", "should_trigger": false},
+  {"query": "esse módulo de checkout tem débito técnico?", "should_trigger": false},
+  {"query": "faz uma análise de impacto se eu mudar a regra de frete", "should_trigger": false},
+  {"query": "refatora essa função de cálculo de desconto", "should_trigger": false},
+  {"query": "o módulo de pagamentos tem alguma brecha de segurança?", "should_trigger": false},
+  {"query": "ninguém sabe o que esse módulo de cobrança faz, pode investigar?", "should_trigger": false},
+  {"query": "como funciona o fluxo de autenticação do sistema?", "should_trigger": false},
+  {"query": "documenta essa nova feature de assinatura que acabei de criar", "should_trigger": false}
+]

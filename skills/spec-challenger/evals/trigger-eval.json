@@ -1,0 +1,18 @@
+[
+  {"query": "questiona essa spec como um dev backend sênior irritado", "should_trigger": true},
+  {"query": "me faz as perguntas difíceis sobre essa PRD", "should_trigger": true},
+  {"query": "o que um arquiteto perguntaria sobre esse design antes de aprovar?", "should_trigger": true},
+  {"query": "estresa essa história de usuário antes do refinamento com o time", "should_trigger": true},
+  {"query": "assuma o papel de um engenheiro que não aceita iniciar a issue com dúvidas em aberto", "should_trigger": true},
+  {"query": "tem alguma ponta solta nessa spec que um dev levantaria no refinamento?", "should_trigger": true},
+  {"query": "revisa essa spec com olhar técnico crítico e me diz o que está fraco", "should_trigger": true},
+  {"query": "o que pode dar errado se o time começar a implementar essa spec do jeito que está?", "should_trigger": true},
+  {"query": "revisa essa PRD por questões de segurança", "should_trigger": false},
+  {"query": "analisa o impacto técnico dessa feature no repositório", "should_trigger": false},
+  {"query": "valida essa spec e me diz se está boa para lançar", "should_trigger": false},
+  {"query": "implementa essa feature com base nessa spec", "should_trigger": false},
+  {"query": "extrai as regras de negócio dessa spec para o código", "should_trigger": false},
+  {"query": "questiona esse módulo de código como um arquiteto", "should_trigger": false},
+  {"query": "aprova essa história de usuário para entrar no sprint", "should_trigger": false},
+  {"query": "o que mudaria no código se eu implementar essa spec?", "should_trigger": false}
+]

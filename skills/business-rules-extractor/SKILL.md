@@ -19,7 +19,7 @@ Esta skill traduz a complexidade do código de programação em regras de negóc
 
 Use Glob para listar arquivos e pastas do repositório. 
 
-**Importante (Cruzamento de Contexto):** Busque ativamente por qualquer pasta de especificação, manuais antigos, PRDs anteriores ou arquivos `.md` e `.txt` na raiz que contenham requisitos do sistema. Se encontrar, faça uma leitura rápida para servir de base. O cruzamento das regras descritas nesses documentos com o código-fonte real do projeto garante **93% a 97% de precisão** nas regras extraídas.
+**Importante (Cruzamento de Contexto):** Busque ativamente por qualquer pasta de especificação, manuais antigos, PRDs anteriores ou arquivos `.md` e `.txt` na raiz que contenham requisitos do sistema. Se encontrar, faça uma leitura rápida para servir de base. O cruzamento das regras descritas nesses documentos com o código-fonte real do projeto elevou a precisão das regras extraídas para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B de média complexidade com documentação de apoio disponível. Projetos com documentação escassa ou muito desatualizada podem apresentar resultados diferentes.
 
 NÃO faça leitura profunda de códigos de programação ainda.
 
