@@ -1,24 +1,29 @@
 # 🤖 Claude Code para PM/PO
 
-Um guia de instalação e uma Skill real do Claude Code para times de produto que já usam (ou querem começar a usar) IA agêntica no dia a dia — sem precisar ser dev.
+Um guia de instalação e um conjunto de Skills reais do Claude Code para times de produto que já usam (ou querem começar a usar) IA agêntica no dia a dia — sem precisar ser dev.
 
 ## Nunca usou Claude Code? Comece aqui
 
 1. Veja o guia de instalação pro seu sistema: [Windows](guia-instalacao/01-instalar-windows.md) ou [Mac](guia-instalacao/02-instalar-mac.md).
 2. Depois, siga [`03-primeiros-passos-claude-code.md`](guia-instalacao/03-primeiros-passos-claude-code.md) pra rodar o Claude Code dentro de um repositório clonado.
-3. Por fim, [`04-instalar-a-skill.md`](guia-instalacao/04-instalar-a-skill.md) explica como instalar a skill `code-discovery` deste repositório, pra começar a usar de verdade.
+3. Por fim, [`04-instalar-a-skill.md`](guia-instalacao/04-instalar-a-skill.md) explica como instalar o **PM Skill Pack** completo (6 skills) deste repositório.
 
 ## Esse repositório é irmão do Code Discovery Toolkit
 
 Esse projeto nasceu do [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit) — um conjunto de prompts e metodologia para investigar repositórios esquecidos, que funciona com **qualquer IA** (ChatGPT, Gemini, Cursor, Claude, etc.).
 
-Este repositório aqui é diferente de propósito: ele é centrado numa ferramenta específica (Claude Code) e num público específico (PM/PO que querem usar IA agêntica sem depender de um dev pra isso). As habilidades do **PM Skill Pack** aplicam a mesma metodologia do toolkit de forma autônoma — o próprio Claude Code decide quando usar, lê o código com suas próprias ferramentas, e só para pra perguntar o que realmente precisa de confirmação humana.
+Este repositório é diferente de propósito: centrado numa ferramenta específica (Claude Code) e num público específico (PM/PO que querem usar IA agêntica sem depender de um dev pra isso). As Skills do **PM Skill Pack** aplicam a mesma metodologia do toolkit de forma autônoma — o próprio Claude Code decide quando usar, lê o código com suas próprias ferramentas, e só para pra perguntar o que realmente precisa de confirmação humana.
 
-| Pasta / Arquivo | Conteúdo | Pra quem |
-| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| [`guia-instalacao/`](guia-instalacao/01-instalar-windows.md) | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos | Qualquer pessoa, mesmo sem experiência técnica |
-| [`skills/code-discovery/`](skills/code-discovery/SKILL.md) | A skill real do Claude Code (`SKILL.md`). Gera relatórios em Markdown padrão ou Obsidian Flavored. | Quem já tem o Claude Code instalado |
-| [`GLOSSARIO.md`](GLOSSARIO.md) | Glossário completo de IA agêntica, Discovery Técnico e Gestão de Produtos | PMs, POs, Tech Leads e Agilistas |
+| Pasta / Arquivo | Skill | O que faz | Pra quem |
+|---|---|---|---|
+| [`skills/code-discovery/`](skills/code-discovery/SKILL.md) | `code-discovery` | Investiga, mapeia e documenta repositórios legados ou esquecidos. Gera relatórios em Markdown ou Obsidian. | Quem precisa entender um sistema antes de tocar nele |
+| [`skills/business-rules-extractor/`](skills/business-rules-extractor/SKILL.md) | `business-rules-extractor` | Extrai regras de negócio ocultas no código e traduz para linguagem de produto, cruzando com documentação legada. | Quem precisa escrever PRDs ou critérios de aceite precisos |
+| [`skills/feature-impact-analysis/`](skills/feature-impact-analysis/SKILL.md) | `feature-impact-analysis` | Analisa o impacto arquitetural de uma feature nova ou PRD antes do refinamento com o time de engenharia. | Quem quer entrar no refinamento com análise técnica pronta |
+| [`skills/tech-debt-evaluator/`](skills/tech-debt-evaluator/SKILL.md) | `tech-debt-evaluator` | Audita débito técnico e traduz problemas de código em riscos de negócio e argumentos de ROI para stakeholders. | Quem precisa convencer a diretoria a investir em refatoração |
+| [`skills/security-blind-spot-reviewer/`](skills/security-blind-spot-reviewer/SKILL.md) | `security-blind-spot-reviewer` | Revisa código ou especificações em busca de pontos cegos de segurança (OWASP, autenticação, exposição de dados). Não requer contexto de negócio. | Quem quer blindar uma feature antes de ir pro sprint |
+| [`skills/spec-challenger/`](skills/spec-challenger/SKILL.md) | `spec-challenger` | Assume a persona de um dev sênior, arquiteto ou engenheiro e questiona a spec/PRD até que todas as pontas soltas sejam sanadas. | Quem quer estressar a spec antes de apresentar ao time |
+| [`guia-instalacao/`](guia-instalacao/01-instalar-windows.md) | — | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos. | Qualquer pessoa, mesmo sem experiência técnica |
+| [`GLOSSARIO.md`](GLOSSARIO.md) | — | Glossário completo de IA agêntica, Discovery Técnico e Gestão de Produtos. | PMs, POs, Tech Leads e Agilistas |
 
 ## Glossário
 
@@ -58,6 +63,8 @@ Depois de instalar o **PM Skill Pack**, você pode usar estes comandos diretamen
 | Extrair regras de negócio | `"Quais as regras de validação e taxas ativas no checkout?"` | `business-rules-extractor` |
 | Analisar impacto de nova feature | `"Se eu quiser criar um Pix Parcelado, o que afeta no código?"` | `feature-impact-analysis` |
 | Avaliar débitos e gambiarras | `"Faça uma auditoria de débito técnico deste módulo"` | `tech-debt-evaluator` |
+| Revisar segurança antes do sprint | `"Revisa essa PRD por pontos cegos de segurança"` | `security-blind-spot-reviewer` |
+| Estressar a spec antes do refinamento | `"Questiona essa spec como um dev backend sênior irritado"` | `spec-challenger` |
 | Cruzar com documentos antigos | `"Use as PRDs da pasta /docs e cruze com o código atual"` | *(Todas as skills)* |
 
 ---
@@ -66,7 +73,7 @@ Depois de instalar o **PM Skill Pack**, você pode usar estes comandos diretamen
 
 - [**obsidian-skills**](https://github.com/kepano/obsidian-skills) (Steph Ango) — skills de referência para sintaxe Obsidian (wikilinks, callouts, properties). A skill `code-discovery` deste repositório usa essa sintaxe na opção de relatório em Obsidian Flavored Markdown.
 - [**skills**](https://github.com/anthropics/skills) (Anthropic) — especificação oficial do formato Skill e o `skill-creator`, cuja metodologia de testes de gatilho foi usada para refinar a `description` da skill `code-discovery` (veja `skills/code-discovery/evals/`).
--  [**agency-agents-app**](https://github.com/msitarzewski/agency-agents-app) — inspirou o template `AGENTS-discovery-template.md` disponível no [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit): o formato AGENTS.md e o conceito de "Approval Gates" foram adaptados para blindar o repositório investigado contra alterações não autorizadas em qualquer ferramenta agêntica compatível.
+- [**agency-agents-app**](https://github.com/msitarzewski/agency-agents-app) — inspirou o template `AGENTS-discovery-template.md` disponível no [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit): o formato AGENTS.md e o conceito de "Approval Gates" foram adaptados para blindar o repositório investigado contra alterações não autorizadas em qualquer ferramenta agêntica compatível.
 
 ## Autor
 

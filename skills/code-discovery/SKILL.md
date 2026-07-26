@@ -5,7 +5,7 @@ description: Use sempre que o usuário pedir para investigar, mapear, entender o
 
 # Code Discovery — Investigação de Repositórios Esquecidos
 
-Esta skill aplica a mesma metodologia do [Code Discovery Toolkit](https://github.com/SEU-USUARIO/code-discovery-toolkit), de forma autônoma: você usa suas próprias ferramentas (Glob, Grep, Read, Bash, Write) em vez de depender de alguém colar conteúdo manualmente.
+Esta skill aplica a mesma metodologia do [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit), de forma autônoma: você usa suas próprias ferramentas (Glob, Grep, Read, Bash, Write) em vez de depender de alguém colar conteúdo manualmente.
 
 ## Princípios não negociáveis (valem durante toda a sessão, não só na primeira resposta)
 
@@ -125,6 +125,6 @@ Avise o usuário onde o arquivo foi salvo ao final, em qualquer um dos dois form
 
 ## Referência
 
-A metodologia completa, incluindo prompts equivalentes para usar com outras IAs (ChatGPT, Gemini, Cursor), está documentada no [Code Discovery Toolkit](https://github.com/SEU-USUARIO/code-discovery-toolkit) — esta skill é a versão autônoma dessa mesma metodologia, pensada para o Claude Code.
+A metodologia completa, incluindo prompts equivalentes para usar com outras IAs (ChatGPT, Gemini, Cursor), está documentada no [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit) — esta skill é a versão autônoma dessa mesma metodologia, pensada para o Claude Code.
 
 A sintaxe Obsidian usada na etapa 5 segue a skill [`obsidian-markdown`](https://github.com/kepano/obsidian-skills) (Steph Ango). A pasta `evals/` desta skill segue a metodologia de testes de gatilho do [`skill-creator`](https://github.com/anthropics/skills) (Anthropic).
