@@ -1,4 +1,5 @@
 ---
+version: 1.0
 name: code-discovery
 description: Use sempre que o usuário pedir para investigar, mapear, entender ou documentar um repositório de código desconhecido, legado, órfão ou esquecido — mesmo que ele não use as palavras "discovery" ou "mapear" explicitamente. Cobre pedidos como "ninguém lembra o que esse repositório faz", "herdei esse projeto e preciso entender antes de tocar", "acha código morto/duplicado/redundante aqui", "esse arquivo ainda é usado por alguma coisa?", ou "faz um discovery desse projeto". NÃO use para refatorar, corrigir bugs, implementar funcionalidades, ou documentar código novo/conhecido — esta skill é só de investigação e relatório sobre código que já existe e está em dúvida.
 ---

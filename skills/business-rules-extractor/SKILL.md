@@ -1,4 +1,5 @@
 ---
+version: 1.0
 name: business-rules-extractor
 description: Use sempre que o usuário pedir para extrair, mapear, documentar ou entender regras de negócio, lógicas de validação, restrições, fórmulas de cálculo ou termos implícitos codificados no repositório. Cobre pedidos como "quais as regras de frete desse checkout?", "como funciona o cálculo de cupom no código?", "me explica a lógica desse validador", ou "extrai as regras desse módulo para uma PRD". NÃO use para refatorar, reescrever ou sugerir novas regras de negócio — esta skill serve apenas para traduzir e documentar o comportamento atual do código em linguagem de produto.
 ---

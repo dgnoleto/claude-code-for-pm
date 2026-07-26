@@ -1,4 +1,5 @@
 ---
+version: 1.0
 name: tech-debt-evaluator
 description: Use sempre que o usuário pedir para avaliar o débito técnico, a saúde do código, code smells, gargalos de performance aparentes ou problemas de manutenção no repositório. Cobre pedidos como "faz um diagnóstico de débito técnico desse repo", "onde estão as maiores gambiarras desse código?", "avalia a qualidade desse módulo", ou "me dá argumentos para convencer a diretoria a refatorar esse checkout". NÃO use para refatorar ou corrigir o código — esta skill serve apenas para traduzir o impacto técnico em riscos de negócio e retorno sobre investimento (ROI) da refatoração.
 ---

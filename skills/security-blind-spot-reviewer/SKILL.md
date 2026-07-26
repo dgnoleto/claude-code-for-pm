@@ -1,4 +1,5 @@
 ---
+version: 1.0
 name: security-blind-spot-reviewer
 description: Use sempre que o usuário pedir para revisar pontos cegos de segurança em código ou especificações de produto. Não requer contexto de negócio — analisa padrões universais de segurança (OWASP Top 10, autenticação, autorização, validação de entrada, exposição de dados sensíveis, rate limiting). Cobre pedidos como "tem alguma brecha de segurança nesse módulo?", "revisa essa PRD por questões de segurança", "o que pode dar errado do ponto de vista de segurança nessa feature?", "esse código está seguro?", ou "quais os riscos de segurança antes de lançar isso?". NÃO use para corrigir ou implementar as correções de segurança — esta skill apenas identifica e documenta os riscos para o time de segurança e engenharia avaliar e decidir.
 ---

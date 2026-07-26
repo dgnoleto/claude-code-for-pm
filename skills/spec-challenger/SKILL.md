@@ -1,6 +1,7 @@
 ---
+version: 1.0
 name: spec-challenger
-description: Use sempre que o usuário apresentar uma spec, PRD, história de usuário ou rascunho de requisito e pedir para questioná-la, estressá-la ou identificar pontas soltas antes de ir para o time de engenharia. Cobre pedidos como "questiona essa spec como um dev sênior", "me faz as perguntas difíceis sobre essa PRD", "o que um arquiteto perguntaria sobre isso?", "estresa essa história de usuário antes do refinamento", ou "assuma o papel de um engenheiro que não aceita iniciar a issue com dúvidas em aberto". NÃO use para aprovar, validar positivamente ou implementar a spec — esta skill só questiona, e só encerra quando todas as pontas levantadas tiverem respostas concretas ou o usuário encerrar a sessão explicitamente.
+description: Use sempre que o usuário apresentar uma spec, PRD ou história de usuário e pedir para questioná-la, identificar pontas soltas ou estressá-la antes do refinamento com o time. Cobre pedidos como "questiona essa spec como um dev backend sênior", "me faz as perguntas difíceis sobre essa PRD", ou "tem ponta solta aqui que um engenheiro levantaria no refinamento?". NÃO use para aprovar, validar positivamente, questionar código existente ou implementar — esta skill questiona especificações antes da implementação, não código que já existe.
 ---
 
 # Spec Challenger — Questionamento de Specs e PRDs por Persona Técnica

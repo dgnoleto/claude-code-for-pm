@@ -1,4 +1,5 @@
 ---
+version: 1.0
 name: feature-impact-analysis
 description: Use sempre que o usuário apresentar uma nova funcionalidade pretendida, rascunho de especificação ou PRD (Product Requirements Document) e pedir para analisar o impacto arquitetural, mapear arquivos afetados ou estimar riscos técnicos dessa alteração na base de código. Cobre pedidos como "se eu quiser criar a feature X, o que ela afeta no código?", "faz uma análise de impacto dessa PRD nesse repo", ou "onde eu mexeria no código para mudar a regra de cupom?". NÃO use para implementar a funcionalidade — esta skill serve apenas para documentar o impacto técnico pré-refinamento.
 ---
