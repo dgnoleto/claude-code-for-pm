@@ -1,11 +1,12 @@
 # Instalar o PM Skill Pack
 
-O **PM Skill Pack** é um conjunto de 6 Skills do Claude Code, cada uma com uma responsabilidade única. Uma Skill é só uma pasta com um arquivo `SKILL.md` dentro — o próprio Claude Code lê esse arquivo, entende quando deve usar aquela skill, e a aciona automaticamente quando você pedir algo relacionado.
+O **PM Skill Pack** é um conjunto de 7 Skills do Claude Code, cada uma com uma responsabilidade única. Uma Skill é uma pasta com um arquivo `SKILL.md` dentro — o próprio Claude Code lê esse arquivo, entende quando deve usar aquela skill, e a aciona automaticamente quando você pedir algo relacionado.
 
-## As 6 Skills do pacote
+## As 7 Skills do pacote
 
 | Skill | O que faz |
 |---|---|
+| `system-bootstrap-architect` | Planeja a arquitetura de novos sistemas do zero (13 pontos) |
 | `code-discovery` | Investiga repositórios legados ou esquecidos |
 | `business-rules-extractor` | Extrai regras de negócio ocultas no código |
 | `feature-impact-analysis` | Analisa impacto de novas features antes do refinamento |
@@ -20,7 +21,9 @@ O **PM Skill Pack** é um conjunto de 6 Skills do Claude Code, cada uma com uma 
 | **Pessoal** | `~/.claude/skills/` (pasta no seu usuário) | Só você, em qualquer repositório que abrir |
 | **De projeto** | `.claude/skills/` (na raiz do repositório) | Todo mundo que clonar aquele repositório |
 
-## Opção A — Instalar como skills pessoais (recomendado pra começar)
+---
+
+## Opção A — Instalar como skills pessoais (recomendado para começar)
 
 1. Copie a pasta `skills/` deste repositório inteira.
 2. Cole dentro de `~/.claude/skills/` no seu computador. Se essa pasta não existir, crie ela.
@@ -29,6 +32,8 @@ O **PM Skill Pack** é um conjunto de 6 Skills do Claude Code, cada uma com uma 
 3. A estrutura final deve ficar assim:
    ```
    ~/.claude/skills/
+   ├── system-bootstrap-architect/
+   │   └── SKILL.md
    ├── code-discovery/
    │   └── SKILL.md
    ├── business-rules-extractor/
@@ -44,17 +49,24 @@ O **PM Skill Pack** é um conjunto de 6 Skills do Claude Code, cada uma com uma 
    ```
 4. Se o Claude Code já estava rodando, execute `/clear` ou inicie uma sessão nova para ele reconhecer as skills novas.
 
+---
+
 ## Opção B — Instalar como skills de projeto (para compartilhar com o time)
 
 1. Dentro da pasta do repositório onde quer usar as skills (a raiz, onde fica o `.git`), crie a pasta `.claude/skills/` se não existir.
 2. Copie as pastas das skills desejadas para dentro de `.claude/skills/`.
 3. Faça commit e push — quem clonar o repositório já recebe as skills junto.
 
+---
+
 ## Como confirmar que funcionou
 
 Dentro de uma sessão do Claude Code, teste com frases naturais:
 
 ```
+"Quero planejar a arquitetura de um novo SaaS de telemedicina."
+→ Deve acionar: system-bootstrap-architect
+
 "Ninguém lembra o que esse repositório faz. Pode investigar?"
 → Deve acionar: code-discovery
 

@@ -71,6 +71,38 @@ Conceitos essenciais de arquitetura e tecnologia para o PM entender onde a regra
 * **Microserviços**: Arquitetura que divide o sistema em múltiplos serviços menores e independentes (ex: serviço de pagamentos, serviço de catálogo) que se comunicam através da rede.
 * **No Claude Code**: Ajuda o PM a saber se a busca por uma regra de negócio exige navegar em apenas um repositório local ou se precisará orientar o Claude a mapear chamadas para múltiplos repositórios e serviços de terceiros.
 
+### **Multi-tenancy (Isolamento de Clientes)**
+* **O que é**: Uma arquitetura onde uma única instância do software atende múltiplos clientes (tenants/empresas). Os dados de cada cliente devem ser isolados de forma estrita para evitar vazamentos cruzados.
+* **No Claude Code**: O PM pode auditar se as tabelas possuem a coluna de controle (ex: `tenant_id`) e se o Claude detecta falhas na falta de filtragem nas queries do repositório.
+
+### **RLS (Row Level Security / Segurança em Nível de Linha)**
+* **O que é**: Uma funcionalidade do banco de dados (ex: PostgreSQL) que aplica filtros de segurança diretamente na execução física das queries, garantindo que um usuário acesse apenas as linhas autorizadas, independente de como a API foi escrita.
+* **No Claude Code**: Permite ao PM validar se as migrations ou scripts de criação do banco possuem as políticas de RLS ativas para blindar dados sensíveis de forma definitiva.
+
+### **Secrets Management (Gestão de Credenciais)**
+* **O que é**: A prática de separar senhas, chaves de API, credenciais de banco de dados e tokens privados do código-fonte, armazenando-os em variáveis de ambiente configuráveis (como arquivos `.env` ou gerenciadores em nuvem).
+* **No Claude Code**: O PM pode orientar a IA a escanear a base de código em busca de "secrets" expostos (*hardcoded*), mitigando riscos sérios de segurança no repositório público.
+
+### **Error Boundary & Logs (Captura e Tratamento de Erros)**
+* **O que é**: Mecanismos que evitam que uma falha em uma tela trave o sistema completo (Error Boundary) e capturam a pilha técnica de erros (Logs) para diagnóstico rápido de problemas em produção.
+* **No Claude Code**: Permite ao PM mapear as rotas de log para verificar se a equipe de suporte tem acesso a informações precisas (print de tela, console trace) quando um usuário reporta uma falha.
+
+### **Security Audit (Auditoria de Segurança)**
+* **O que é**: O processo de varrer dependências de código, rotas e middlewares buscando portas abertas e brechas conhecidas (vulnerabilidades) antes de publicar a versão do software.
+* **No Claude Code**: A IA ajuda a mapear dependências vulneráveis e indicar o arquivo exato onde uma rota está exposta sem controle de sessão ou token.
+
+### **WAF, Bot Fight & Rate Limiting (Proteção de Rede)**
+* **O que é**: Camadas de defesa externas que filtram o tráfego antes de bater nos servidores (WAF contra exploits, Bot Fight contra web scraping de robôs e Rate Limiting para limitar chamadas repetitivas por IP).
+* **No Claude Code**: O PM pode analisar se os scripts ou configs do repositório possuem as devidas configurações de rate limit ativadas para rotas críticas (como login e checkout).
+
+### **HTTPS, TLS/SSL & HSTS (Criptografia de Transporte)**
+* **O que é**: Protocolos que garantem a comunicação segura e criptografada de ponta a ponta entre o navegador do usuário e os servidores, impedindo interceptação de dados de pagamento ou senhas.
+* **No Claude Code**: Ajuda a validar se o repositório impõe cabeçalhos de transporte rígidos (HSTS) e se as chamadas de API externas usam URLs seguras.
+
+### **ADR (Architecture Decision Record / Registro de Decisão Arquitetural)**
+* **O que é**: Um documento curto que registra decisões de arquitetura e tecnologia tomadas no projeto, bem como o contexto e as consequências de cada decisão.
+* **No Claude Code**: A IA pode usar os ADRs salvos no repositório como contexto prioritário para entender o porquê de certas escolhas tecnológicas antes de analisar o código.
+
 ### **API (Application Programming Interface), Endpoints e Métodos HTTP**
 * **O que é**: A API é a ponte de comunicação entre sistemas. Os *Endpoints* são as rotas de acesso (ex: `/api/v1/checkout`), e os *Métodos HTTP* definem a ação (GET para ler, POST para criar, PUT/PATCH para atualizar, DELETE para remover).
 * **No Claude Code**: Ao analisar o código, o PM pode identificar as rotas exatas que a tela de um produto chama para entender o ciclo de vida dos dados e validar as regras que passam por elas.
@@ -159,6 +191,10 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, metodo
 ### **PRD (Product Requirements Document / Especificação de Requisitos)**
 * **O que é**: O documento de requisitos que reúne o propósito, escopo, regras de negócio e critérios de sucesso de uma funcionalidade.
 * **No Claude Code**: O PM pode usar o Claude Code para ler o código legado e preencher a seção de "Requisitos Não Funcionais" ou "Especificações Técnicas" da PRD automaticamente, documentando dependências de banco de dados e APIs existentes.
+
+### **RBAC (Role-Based Access Control / Controle de Acesso Baseado em Perfis)**
+* **O que é**: Uma matriz de controle que mapeia diferentes tipos de usuário (ex: Administrador, Gerente, Operador, Cliente) e define exatamente quais ações cada perfil pode realizar em cada recurso do sistema.
+* **No Claude Code**: O Claude ajuda a confrontar a matriz teórica do PM com a implementação física no código local (como middlewares e anotações `@RolesAllowed`), identificando células em branco ou regras mal implementadas que expõem recursos.
 
 ### **BPMN (Business Process Model and Notation / Modelo e Notação de Processos de Negócio)**
 * **O que é**: O padrão para modelagem visual de processos de negócio, representando graficamente o fluxo de tarefas, atores, decisões e eventos em diagramas (fluxogramas).

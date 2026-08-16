@@ -1,29 +1,31 @@
 # 🤖 Claude Code para PM/PO
 
-Um guia de instalação e um conjunto de Skills reais do Claude Code para times de produto que já usam (ou querem começar a usar) IA agêntica no dia a dia — sem precisar ser dev.
+Um guia de instalação e um conjunto de Skills reais do Claude Code para times de produto. Focado em **Discovery Técnico de Sistemas Legados** e no **Planejamento/Criação Segura de Sistemas do Zero (Vibe Coding)** — sem precisar ser dev.
 
 ## Nunca usou Claude Code? Comece aqui
 
 1. Veja o guia de instalação pro seu sistema: [Windows](guia-instalacao/01-instalar-windows.md) ou [Mac](guia-instalacao/02-instalar-mac.md).
 2. Depois, siga [`03-primeiros-passos-claude-code.md`](guia-instalacao/03-primeiros-passos-claude-code.md) pra rodar o Claude Code dentro de um repositório clonado.
-3. Por fim, [`04-instalar-a-skill.md`](guia-instalacao/04-instalar-a-skill.md) explica como instalar o **PM Skill Pack** completo (6 skills) deste repositório.
+3. Por fim, [`04-instalar-a-skill.md`](guia-instalacao/04-instalar-a-skill.md) explica como instalar o **PM Skill Pack** completo (7 skills) deste repositório.
 
 ## Esse repositório é irmão do Code Discovery Toolkit
 
 Esse projeto nasceu do [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit) — um conjunto de prompts e metodologia para investigar repositórios esquecidos, que funciona com **qualquer IA** (ChatGPT, Gemini, Cursor, Claude, etc.).
 
-Este repositório é diferente de propósito: centrado numa ferramenta específica (Claude Code) e num público específico (PM/PO que querem usar IA agêntica sem depender de um dev pra isso). As Skills do **PM Skill Pack** aplicam a mesma metodologia do toolkit de forma autônoma — o próprio Claude Code decide quando usar, lê o código com suas próprias ferramentas, e só para pra perguntar o que realmente precisa de confirmação humana.
+Este repositório é diferente de propósito: centrado numa ferramenta específica (Claude Code) e num público específico (PM/PO que querem usar IA agêntica sem depender de um dev pra isso). As Skills do **PM Skill Pack** aplicam a mesma metodologia de forma autônoma — o próprio Claude Code decide quando usar, lê o código com suas próprias ferramentas, e só para para perguntar o que realmente precisa de confirmação humana.
 
 | Pasta / Arquivo | Skill | O que faz | Pra quem |
 |---|---|---|---|
+| [`skills/system-bootstrap-architect/`](skills/system-bootstrap-architect/SKILL.md) | `system-bootstrap-architect` | Planeja, modela e arquiteta novos sistemas do zero (ou Vibe Coding) seguindo a metodologia rigorosa de 13 pontos. | Quem quer começar um projeto novo do jeito certo e seguro |
 | [`skills/code-discovery/`](skills/code-discovery/SKILL.md) | `code-discovery` | Investiga, mapeia e documenta repositórios legados ou esquecidos. Gera relatórios em Markdown ou Obsidian. | Quem precisa entender um sistema antes de tocar nele |
 | [`skills/business-rules-extractor/`](skills/business-rules-extractor/SKILL.md) | `business-rules-extractor` | Extrai regras de negócio ocultas no código e traduz para linguagem de produto, cruzando com documentação legada. | Quem precisa escrever PRDs ou critérios de aceite precisos |
 | [`skills/feature-impact-analysis/`](skills/feature-impact-analysis/SKILL.md) | `feature-impact-analysis` | Analisa o impacto arquitetural de uma feature nova ou PRD antes do refinamento com o time de engenharia. | Quem quer entrar no refinamento com análise técnica pronta |
 | [`skills/tech-debt-evaluator/`](skills/tech-debt-evaluator/SKILL.md) | `tech-debt-evaluator` | Audita débito técnico e traduz problemas de código em riscos de negócio e argumentos de ROI para stakeholders. | Quem precisa convencer a diretoria a investir em refatoração |
 | [`skills/security-blind-spot-reviewer/`](skills/security-blind-spot-reviewer/SKILL.md) | `security-blind-spot-reviewer` | Revisa código ou especificações em busca de pontos cegos de segurança (OWASP, autenticação, exposição de dados). Não requer contexto de negócio. | Quem quer blindar uma feature antes de ir pro sprint |
 | [`skills/spec-challenger/`](skills/spec-challenger/SKILL.md) | `spec-challenger` | Assume a persona de um dev sênior, arquiteto ou engenheiro e questiona a spec/PRD até que todas as pontas soltas sejam sanadas. | Quem quer estressar a spec antes de apresentar ao time |
+| [`examples/exemplo-system-blueprint.md`](examples/exemplo-system-blueprint.md) | — | Exemplo completo de blueprint de arquitetura segura gerado com a metodologia de 13 pontos. | Quem quer ver um modelo pronto de especificação |
 | [`guia-instalacao/`](guia-instalacao/01-instalar-windows.md) | — | Passo a passo de instalação do Claude Code (Windows e Mac) e primeiros passos. | Qualquer pessoa, mesmo sem experiência técnica |
-| [`GLOSSARIO.md`](GLOSSARIO.md) | — | Glossário completo de IA agêntica, Discovery Técnico e Gestão de Produtos. | PMs, POs, Tech Leads e Agilistas |
+| [`GLOSSARIO.md`](GLOSSARIO.md) | — | Glossário completo de IA agêntica, Discovery Técnico, Arquitetura e Gestão de Produtos. | PMs, POs, Tech Leads e Agilistas |
 
 ## Glossário
 
@@ -59,6 +61,7 @@ Depois de instalar o **PM Skill Pack**, você pode usar estes comandos diretamen
 
 | Objetivo de Produto | O que digitar no Claude Code | Skill Ativada |
 |---|---|---|
+| Planejar um novo sistema do zero | `"Quero planejar a arquitetura de um novo SaaS de [tema]"` | `system-bootstrap-architect` |
 | Mapear um repositório abandonado | `"Faz um discovery completo desse projeto"` | `code-discovery` |
 | Extrair regras de negócio | `"Quais as regras de validação e taxas ativas no checkout?"` | `business-rules-extractor` |
 | Analisar impacto de nova feature | `"Se eu quiser criar um Pix Parcelado, o que afeta no código?"` | `feature-impact-analysis` |
@@ -66,6 +69,26 @@ Depois de instalar o **PM Skill Pack**, você pode usar estes comandos diretamen
 | Revisar segurança antes do sprint | `"Revisa essa PRD por pontos cegos de segurança"` | `security-blind-spot-reviewer` |
 | Estressar a spec antes do refinamento | `"Questiona essa spec como um dev backend sênior irritado"` | `spec-challenger` |
 | Cruzar com documentos antigos | `"Use as PRDs da pasta /docs e cruze com o código atual"` | *(Todas as skills)* |
+
+---
+
+## 🏗️ A Metodologia de 13 Pontos de Criação Segura (Vibe Coding)
+
+Quando iniciamos um sistema do zero — especialmente no modelo de **Vibe Coding** com agentes de IA —, é fácil gerar códigos rápidos que falham em boas práticas de engenharia e segurança. A skill `system-bootstrap-architect` obriga a IA a projetar e documentar a fundação estrutural do projeto em **13 pontos fundamentais** antes do desenvolvimento:
+
+1. **PRD (Product Requirements Document):** Alinhamento claro de escopo e objetivos.
+2. **UML & Mapa do Sistema:** Desenho de fluxos (Mermaid) mostrando quem conversa com quem.
+3. **Matriz RBAC (Acessos):** Tabela mapeando permissões de cada perfil de usuário.
+4. **Multi-tenancy:** Garantia técnica de isolamento por `tenant_id`.
+5. **RLS (Row Level Security):** Proteção de acesso direto nas tabelas do banco de dados.
+6. **Secrets Management:** Separação de chaves de API e senhas em arquivos `.env`.
+7. **Modularidade & Feature Flags:** Arquitetura limpa com chaves liga/desliga de recursos.
+8. **Error Reporting & Logs:** Botão de captura de logs e tela amigável de erro.
+9. **Plano de Testes:** Definição de testes Unitários, Integração e E2E.
+10. **Security Audit Gate:** Checklist automatizado de segurança antes do deploy.
+11. **WAF & Rate Limiting:** Proteção de rede contra abusos e bots.
+12. **HTTPS Strict (TLS/HSTS):** Criptografia rígida de ponta a ponta.
+13. **ADR (Architecture Decision Record):** Registro do histórico de escolhas de tecnologia do projeto.
 
 ---
 
