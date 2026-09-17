@@ -1,12 +1,12 @@
 ---
-version: 1.0
+version: 1.1
 name: business-rules-extractor
 description: Use sempre que o usuário pedir para extrair, mapear, documentar ou entender regras de negócio, lógicas de validação, restrições, fórmulas de cálculo ou termos implícitos codificados no repositório. Cobre pedidos como "quais as regras de frete desse checkout?", "como funciona o cálculo de cupom no código?", "me explica a lógica desse validador", ou "extrai as regras desse módulo para uma PRD". NÃO use para refatorar, reescrever ou sugerir novas regras de negócio — esta skill serve apenas para traduzir e documentar o comportamento atual do código em linguagem de produto.
 ---
 
 # Business Rules Extractor — Extração de Regras de Negócio Ocultas
 
-Esta skill traduz a complexidade do código de programação em regras de negócio claras, didáticas e organizadas em formato de especificação de produto, cruzando o código-fonte com qualquer documentação legada disponível para garantir precisão cirúrgica.
+Esta skill traduz a complexidade do código de programação em regras de negócio claras, didáticas e organizadas em formato de especificação de produto, cruzando o código-fonte com qualquer documentação legada disponível para identificar regras observadas, divergências e perguntas a validar.
 
 ## Princípios não negociáveis (valem durante toda a sessão)
 
@@ -20,7 +20,7 @@ Esta skill traduz a complexidade do código de programação em regras de negóc
 
 Use Glob para listar arquivos e pastas do repositório. 
 
-**Importante (Cruzamento de Contexto):** Busque ativamente por qualquer pasta de especificação, manuais antigos, PRDs anteriores ou arquivos `.md` e `.txt` na raiz que contenham requisitos do sistema. Se encontrar, faça uma leitura rápida para servir de base. O cruzamento das regras descritas nesses documentos com o código-fonte real do projeto elevou a precisão das regras extraídas para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B de média complexidade com documentação de apoio disponível. Projetos com documentação escassa ou muito desatualizada podem apresentar resultados diferentes.
+**Importante (Cruzamento de Contexto):** Procure documentação, requisitos e histórico pertinentes ao escopo. Compare-os com o código e registre divergências, sem assumir que o documento antigo descreve a política vigente. A confiança deve ser justificada pela evidência de cada achado; não atribua percentuais de precisão sem avaliação reproduzível.
 
 NÃO faça leitura profunda de códigos de programação ainda.
 

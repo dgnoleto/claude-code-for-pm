@@ -77,7 +77,7 @@ Conceitos essenciais de arquitetura e tecnologia para o PM entender onde a regra
 
 ### **RLS (Row Level Security / Segurança em Nível de Linha)**
 * **O que é**: Uma funcionalidade do banco de dados (ex: PostgreSQL) que aplica filtros de segurança diretamente na execução física das queries, garantindo que um usuário acesse apenas as linhas autorizadas, independente de como a API foi escrita.
-* **No Claude Code**: Permite ao PM validar se as migrations ou scripts de criação do banco possuem as políticas de RLS ativas para blindar dados sensíveis de forma definitiva.
+* **No Claude Code**: Permite ao PM validar se as migrations ou scripts de criação do banco possuem as políticas de RLS ativas como parte da revisão de acesso; a presença de uma política não comprova proteção completa.
 
 ### **Secrets Management (Gestão de Credenciais)**
 * **O que é**: A prática de separar senhas, chaves de API, credenciais de banco de dados e tokens privados do código-fonte, armazenando-os em variáveis de ambiente configuráveis (como arquivos `.env` ou gerenciadores em nuvem).
@@ -202,7 +202,7 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, metodo
 
 ### **Levantamento de Requisitos (Requirements Elicitation)**
 * **O que é**: A atividade de mapear e coletar as necessidades dos clientes e stakeholders que devem ser atendidas pelo sistema.
-* **No Claude Code**: O PM pode cruzar a entrevista com os stakeholders com o mapeamento feito pelo Claude no código atual. Isso permite identificar inconsistências antes mesmo do desenvolvimento começar, garantindo que novos requisitos não causem regressões ou quebra de lógicas existentes.
+* **No Claude Code**: O PM pode cruzar a entrevista com os stakeholders com o mapeamento feito pelo Claude no código atual. Isso permite identificar inconsistências antes mesmo do desenvolvimento começar, para levantar riscos de regressão a validar com testes.
 
 ### **Caso de Uso (Use Case)**
 * **O que é**: Um formato de especificação de requisitos que descreve uma sequência de interações entre um ator (usuário ou outro sistema) e a aplicação para atingir um objetivo específico.
@@ -218,7 +218,7 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, metodo
 
 ### **Precificação (Pricing Engine / Regras Financeiras)**
 * **O que é**: O conjunto de algoritmos, regras e regras fiscais que calcula o preço final de venda de um item, taxas, juros, descontos, frete e margens de lucro de um produto.
-* **No Claude Code**: A extração de regras de precificação é uma atividade de altíssimo risco e valor. O PM pode usar a skill `business-rules-extractor` para auditar a pasta de serviços financeiros e garantir que as fórmulas de desconto ou taxas programadas estão em perfeita conformidade com as regras declaradas pela equipe de Marketing e Finanças.
+* **No Claude Code**: A extração de regras de precificação é uma atividade de altíssimo risco e valor. O PM pode usar a skill `business-rules-extractor` para auditar a pasta de serviços financeiros e comparar as fórmulas com as regras declaradas, registrando divergências para validação com Marketing e Finanças.
 
 ### **Stakeholders (Partes Interessadas)**
 * **O que é**: Qualquer pessoa ou área impactada pelo produto (clientes, diretores, time de vendas, marketing, jurídico).
@@ -248,7 +248,7 @@ Termos práticos do dia a dia de gestão ágil de produto (Scrum, Kanban, metodo
 ### **QA (Quality Assurance) & UAT (Testes de Aceitação de Usuário)**
 * **QA**: Atividade de garantir a qualidade do software através de testes antes do lançamento.
 * **UAT**: Fase final de teste onde usuários de negócio validam se a feature funciona conforme as regras especificadas.
-* **No Claude Code**: O PM pode gerar cenários de teste automatizados ou de UAT baseando-se nos fluxos descobertos pelas skills, garantindo que nenhum cenário de exceção do código original seja esquecido pelo time de QA.
+* **No Claude Code**: O PM pode gerar cenários de teste automatizados ou de UAT baseando-se nos fluxos descobertos pelas skills, para apoiar a cobertura de exceções, complementada pela revisão do time de QA.
 
 ### **SLA (Service Level Agreement) & SLO (Service Level Objective)**
 * **SLA**: O acordo oficial de nível de serviço com o cliente (ex: o sistema de pagamento precisa ter 99,9% de uptime).
@@ -280,7 +280,7 @@ Ferramentas práticas e configurações de ambiente de desenvolvimento.
 
 ### **Arquivo .claudecode / .cursorrules / .github**
 * **O que é**: Arquivos de configuração inseridos na raiz do repositório para definir diretrizes globais, regras arquiteturais, instruções de comportamento e limitações de contexto para assistentes de IA (como Cursor e Claude Code).
-* **No Claude Code**: Permite ao PM ou líder do time blindar o comportamento do assistente antes de qualquer execução de tarefas.
+* **No Claude Code**: Orienta o comportamento esperado do assistente. Permissões e isolamento precisam ser configurados no ambiente; instruções não garantem obediência.
 
 ---
 

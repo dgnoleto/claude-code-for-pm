@@ -1,5 +1,5 @@
 ---
-version: 1.0
+version: 1.1
 name: tech-debt-evaluator
 description: Use sempre que o usuário pedir para avaliar o débito técnico, a saúde do código, code smells, gargalos de performance aparentes ou problemas de manutenção no repositório. Cobre pedidos como "faz um diagnóstico de débito técnico desse repo", "onde estão as maiores gambiarras desse código?", "avalia a qualidade desse módulo", ou "me dá argumentos para convencer a diretoria a refatorar esse checkout". NÃO use para refatorar ou corrigir o código — esta skill serve apenas para traduzir o impacto técnico em riscos de negócio e retorno sobre investimento (ROI) da refatoração.
 ---
@@ -20,7 +20,7 @@ Esta skill audita o código em busca de "gambiarras", complexidade excessiva e c
 
 Use Glob para mapear a estrutura física do repositório.
 
-**Importante (Cruzamento de Contexto):** Procure ativamente por arquivos de histórico de bugs, logs, issues relatadas, documentação de arquitetura antiga ou PRDs da primeira versão. A combinação de *código-fonte + histórico de problemas documentados* elevou a precisão do diagnóstico de débito técnico para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B com histórico de issues e PRDs disponíveis. Projetos sem histórico documentado podem apresentar resultados diferentes.
+**Importante (Cruzamento de Contexto):** Procure documentação, requisitos e histórico pertinentes ao escopo. Compare-os com o código e registre divergências, sem assumir que o documento antigo descreve a política vigente. A confiança deve ser justificada pela evidência de cada achado; não atribua percentuais de precisão sem avaliação reproduzível.
 
 NÃO faça leitura profunda de códigos ainda.
 

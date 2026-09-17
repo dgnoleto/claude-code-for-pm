@@ -1,44 +1,57 @@
-# 📋 Documento de Regras de Negócio — Módulo de Desconto & Checkout
+# Caso didático: do código de checkout às perguntas de produto
 
-**Data da Extração:** 2026-07-24
-**Escopo Analisado:** Módulo de precificação e validação de cupons.
-**Documentos de Apoio Consultados:** `docs/Checkout-Spec-2025.md` (cruzado com código real para 94% de acurácia).
+Esta demonstração usa [código fictício incluído no repositório](checkout-demo/checkout.py) e uma [política legada fictícia](checkout-demo/politica-legada.md). Os resultados abaixo são uma referência editorial conferível, não uma saída medida do Claude Code.
 
----
+## 1. Problema e escopo
 
-## 🎯 Objetivo de Negócio do Módulo
+Um time precisa documentar as regras de cupom e frete antes de modificar o checkout. Existe uma política antiga, mas o comportamento implementado pode ser diferente.
 
-Garantir que as regras de desconto aplicadas no carrinho de compras sigam as políticas de marketing vigentes, evitando fraudes (uso acumulado de cupons) e validando limites mínimos de compra para frete grátis.
+Escopo: `desconto_cupom` e `frete_gratis` em `checkout-demo/checkout.py`. A demonstração presume entradas válidas; não representa um checkout completo.
 
----
+## 2. Solicitação para a skill
 
-## 🔍 Regras de Negócio Identificadas no Código
+> Use business-rules-extractor para analisar apenas examples/checkout-demo/checkout.py e comparar com examples/checkout-demo/politica-legada.md. Apresente regras observadas, referências ao código, divergências e perguntas de produto. Responda nesta conversa sem alterar arquivos. Não use os demais arquivos de exemplo como evidência do comportamento.
 
-### 1. Regra de Não-Acumulação de Descontos
-- **Descrição:** Um usuário não pode utilizar um cupom de desconto promocional caso o carrinho já possua itens com descontos individuais de oferta relâmpago superiores a 15%.
-- **Rastro Técnico:** [discountService.js](file:///d:/Github/claude-code-for-pm/examples/mocks/discountService.js#L23-L37)
-- **Status de Certeza:** Confirmado pelo código ativo.
+Para uma avaliação sem acesso ao gabarito, copie apenas o código e a política para uma pasta isolada antes de executar a skill. Veja o [protocolo](../docs/avaliacao-de-respostas.md).
 
-### 2. Regra de Limite de Desconto Máximo por Cupom
-- **Descrição:** Independentemente da porcentagem do cupom (ex: 50% OFF), o valor absoluto de desconto máximo concedido por cupom é limitado a R$ 100,00 por transação.
-- **Rastro Técnico:** [discountService.js](file:///d:/Github/claude-code-for-pm/examples/mocks/discountService.js#L54)
-- **Status de Certeza:** Confirmado pelo código ativo.
+## 3. Regras que a análise deve encontrar
 
-### 3. Regra de Frete Grátis Regionalizado
-- **Descrição:** O frete é grátis apenas para a região Sudeste em compras acima de R$ 199,00. Para as demais regiões, o frete grátis é concedido apenas acima de R$ 299,00.
-- **Rastro Técnico:** [shippingCalculator.js](file:///d:/Github/claude-code-for-pm/examples/mocks/shippingCalculator.js#L12-L29)
-- **Status de Certeza:** Confirmado pelo código ativo.
+| Regra observada | Evidência | Limite da conclusão |
+|---|---|---|
+| Cupom é bloqueado quando a maior oferta supera 15% | `desconto_cupom`, condição `maior_oferta_percentual > 15` | Exatamente 15% não bloqueia |
+| O desconto de cupom é limitado a 10.000 centavos | `desconto_cupom`, chamada a `min` | Entradas inválidas não são tratadas nesta base |
+| No Sudeste, frete grátis exige subtotal maior que 19.900 centavos | `frete_gratis`, escolha do limite e comparação `>` | Exatamente R$ 199,00 não dá frete grátis |
+| Nas demais regiões, exige subtotal maior que 29.900 centavos | `frete_gratis` | Não há uma lista de regiões válidas |
+| Desconto percentual descarta frações de centavo | `desconto_cupom`, divisão inteira `//` | A política não explica o arredondamento |
 
----
+Todos os símbolos estão em [checkout.py](checkout-demo/checkout.py). Ao executar a skill, exija também referências às linhas da versão efetivamente analisada.
 
-## ⚠️ Inconsistências Detectadas (Código vs Documentação)
+## 4. Divergências e informação insuficiente
 
-- **Divergência de Frete Grátis:** A especificação legada (`docs/Checkout-Spec-2025.md`) diz que o frete grátis para o Sudeste deveria ser acima de R$ 150,00. No entanto, no arquivo [shippingCalculator.js](file:///d:/Github/claude-code-for-pm/examples/mocks/shippingCalculator.js#L14) o valor real programado é de **R$ 199,00**.
-- **Divergência de Cupom de Primeira Compra:** A documentação prevê que o cupom `BEMVINDO` deveria expirar em 30 dias após o cadastro. No código, não há validação de data de expiração, apenas uma checagem se o usuário já fez alguma transação anterior no banco.
+A política legada indica frete grátis acima de R$ 150,00 para Sudeste; o código usa R$ 199,00. Isso comprova uma divergência entre os dois artefatos, sem determinar qual representa a intenção atual.
 
----
+A política menciona expiração do cupom BEMVINDO. O arquivo analisado não recebe código do cupom nem data de cadastro. Não é possível concluir se essa validação existe em outro módulo.
 
-## ❓ Perguntas para Validação Técnico-Comercial (Dúvidas de Produto)
+## 5. Decisão proposta para discussão
 
-1. **Sobre o Frete Grátis:** O valor de R$ 199,00 no código está correto, ou foi um erro de desenvolvimento e deveria ter sido R$ 150,00 conforme o Confluence?
-2. **Expiração do Cupom `BEMVINDO`:** Devemos implementar a expiração de 30 dias, ou a checagem de "primeira compra" é suficiente?
+Confirmar com o responsável pelo produto o limite vigente do frete e o local da validação do cupom BEMVINDO antes de especificar uma mudança.
+
+Alternativas: atualizar a documentação, corrigir o código ou ampliar a investigação. Nenhuma dessas alternativas deve ser tratada como decisão já aprovada.
+
+Critérios de aceite após a definição da política: valores abaixo, iguais e acima do limite devem ter comportamento explícito; aplicação de cupom com oferta de 15% e superior a 15% deve ser coberta; teto do desconto e arredondamento devem estar documentados.
+
+## 6. Confira o comportamento da base
+
+Na raiz do repositório, usando Python 3.11+:
+
+```bash
+python -m unittest discover -s examples/checkout-demo -p "test_*.py" -v
+```
+
+Os testes verificam a base sintética. Não executam uma skill, não acessam serviços externos e não medem precisão de IA.
+
+## 7. Como avaliar a resposta da IA
+
+Confira as cinco regras, a divergência e a lacuna sobre BEMVINDO. Registre omissões e afirmações sem evidência. Uma resposta que invente a implementação de expiração deve ser reprovada nesse critério, mesmo que esteja bem escrita.
+
+Use o [protocolo de avaliação](../docs/avaliacao-de-respostas.md) para registrar modelo, versão, prompt, saída e revisão.

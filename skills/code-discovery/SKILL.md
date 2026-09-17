@@ -1,5 +1,5 @@
 ---
-version: 1.0
+version: 1.1
 name: code-discovery
 description: Use sempre que o usuário pedir para investigar, mapear, entender ou documentar um repositório de código desconhecido, legado, órfão ou esquecido — mesmo que ele não use as palavras "discovery" ou "mapear" explicitamente. Cobre pedidos como "ninguém lembra o que esse repositório faz", "herdei esse projeto e preciso entender antes de tocar", "acha código morto/duplicado/redundante aqui", "esse arquivo ainda é usado por alguma coisa?", ou "faz um discovery desse projeto". NÃO use para refatorar, corrigir bugs, implementar funcionalidades, ou documentar código novo/conhecido — esta skill é só de investigação e relatório sobre código que já existe e está em dúvida.
 ---
@@ -20,7 +20,7 @@ Esta skill aplica a mesma metodologia do [Code Discovery Toolkit](https://github
 
 Use Glob para listar a estrutura de pastas e nomes de arquivos, e `git log --oneline | tail -20` (via Bash) para ver os commits iniciais, se houver histórico Git. 
 
-**Importante (Cruzamento de Contexto):** Procure por pastas ou arquivos de documentação, como `docs/`, `PRD/`, `specs/`, arquivos `.md` soltos na raiz ou pastas de requisitos. Se houver qualquer documentação ou levantamento de requisitos legados (mesmo antigos), inclua-os nesta varredura leve. A combinação do código-fonte com a intenção original descrita em documentos de apoio eleva a precisão do seu discovery para a faixa de **93% a 97%** de acurácia, evitando suposições erradas.
+**Importante (Cruzamento de Contexto):** Procure documentação, requisitos e histórico pertinentes ao escopo. Compare-os com o código e registre divergências, sem assumir que o documento antigo descreve a política vigente. A confiança deve ser justificada pela evidência de cada achado; não atribua percentuais de precisão sem avaliação reproduzível.
 
 NÃO leia o conteúdo completo dos arquivos de código ainda — o objetivo aqui é só mapear o que existe de estrutura de código e documentação disponível, gastando o mínimo de tokens possível antes de saber o que realmente precisa de leitura profunda.
 

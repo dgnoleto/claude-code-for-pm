@@ -1,5 +1,5 @@
 ---
-version: 1.0
+version: 1.1
 name: feature-impact-analysis
 description: Use sempre que o usuário apresentar uma nova funcionalidade pretendida, rascunho de especificação ou PRD (Product Requirements Document) e pedir para analisar o impacto arquitetural, mapear arquivos afetados ou estimar riscos técnicos dessa alteração na base de código. Cobre pedidos como "se eu quiser criar a feature X, o que ela afeta no código?", "faz uma análise de impacto dessa PRD nesse repo", ou "onde eu mexeria no código para mudar a regra de cupom?". NÃO use para implementar a funcionalidade — esta skill serve apenas para documentar o impacto técnico pré-refinamento.
 ---
@@ -20,7 +20,7 @@ Esta skill ajuda Product Managers a anteciparem a complexidade e o risco técnic
 
 Use Glob para mapear a estrutura física do repositório. 
 
-**Importante (Cruzamento de Contexto):** Busque ativamente por documentação técnica de arquitetura, esquemas de banco de dados (`schema.sql`, `prisma.schema`), diagramas ou PRDs anteriores na pasta. A combinação de *código-fonte + documentação legada* elevou a precisão da análise de impacto para a faixa de **93% a 97%** — resultado observado pelo autor em repositórios B2B de média complexidade. Repositórios com menor cobertura de documentação técnica podem apresentar resultados diferentes.
+**Importante (Cruzamento de Contexto):** Procure documentação, requisitos e histórico pertinentes ao escopo. Compare-os com o código e registre divergências, sem assumir que o documento antigo descreve a política vigente. A confiança deve ser justificada pela evidência de cada achado; não atribua percentuais de precisão sem avaliação reproduzível.
 
 NÃO faça leitura profunda de códigos ainda.
 

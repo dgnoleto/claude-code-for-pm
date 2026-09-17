@@ -1,5 +1,7 @@
 # 🗺️ Blueprint de Arquitetura — ClinicaSync SaaS (Multi-Tenant)
 
+> **Exemplo didático de planejamento.** Os trechos abaixo não constituem uma aplicação executável nem uma arquitetura validada em produção. Controles de acesso, isolamento e segurança dependem de implementação, configuração e testes no ambiente de destino.
+
 **Data de Concepção:** 2026-08-10
 **Propósito:** SaaS multi-tenant para agendamento de consultas médicas e odontológicas voltado para clínicas e consultórios individuais.
 
