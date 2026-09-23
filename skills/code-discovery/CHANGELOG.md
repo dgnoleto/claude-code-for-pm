@@ -1,5 +1,11 @@
 # Changelog — `code-discovery`
 
+## 1.2 — 2026-09-23
+
+- Mantém a capacidade como apoio à rotina de produto.
+- Reutiliza escopo e autorização fornecidos; permite saída na conversa.
+- Padroniza versão em metadata.version e limites de evidência.
+
 ## v1.1 — 2026-09-17
 - Remove percentuais de precisão sem avaliação reproduzível.
 - Orienta comparar código e documentação, registrar divergências e justificar confiança por evidência.

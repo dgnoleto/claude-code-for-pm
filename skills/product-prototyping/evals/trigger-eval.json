@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Crie um protótipo local para testar este reagendamento.",
+    "should_trigger": true
+  },
+  {
+    "query": "Prepare um briefing para gerar telas no Stitch.",
+    "should_trigger": true
+  },
+  {
+    "query": "Use a conexão disponível do Figma para representar este fluxo.",
+    "should_trigger": true
+  },
+  {
+    "query": "Quero testar uma hipótese antes de implementar: ajude com as telas.",
+    "should_trigger": true
+  },
+  {
+    "query": "Transforme estas regras em um fluxo navegável com dados fictícios.",
+    "should_trigger": true
+  },
+  {
+    "query": "Prepare o roteiro de avaliação deste protótipo junto com os estados faltantes.",
+    "should_trigger": true
+  },
+  {
+    "query": "Não tenho Figma conectado; preciso de uma alternativa local para o protótipo.",
+    "should_trigger": true
+  },
+  {
+    "query": "Quero só o briefing visual desta ideia, sem construir ainda.",
+    "should_trigger": true
+  },
+  {
+    "query": "Implemente autenticação real em produção.",
+    "should_trigger": false
+  },
+  {
+    "query": "Priorize estas ideias com RICE.",
+    "should_trigger": false
+  },
+  {
+    "query": "Calcule o retorno financeiro.",
+    "should_trigger": false
+  },
+  {
+    "query": "Defina OKRs para o time.",
+    "should_trigger": false
+  },
+  {
+    "query": "Encontre o arquivo Figma chamado Marca.",
+    "should_trigger": false
+  },
+  {
+    "query": "Investigue o sistema legado.",
+    "should_trigger": false
+  },
+  {
+    "query": "Corrija o bug de cobrança em produção.",
+    "should_trigger": false
+  },
+  {
+    "query": "Publique este site já finalizado.",
+    "should_trigger": false
+  }
+]
