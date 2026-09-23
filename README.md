@@ -1,87 +1,76 @@
 # Claude Code for PM
 
-**Skills para transformar perguntas de produto em investigação técnica, regras de negócio e especificações revisáveis.**
+**Fluxos práticos de trabalho de produto com Claude Code: priorizar iniciativas, prototipar soluções e preparar decisões e entregas.**
 
-Para PMs, POs e FDEs que trabalham com sistemas legados, integrações ou definição de novos produtos e querem aproximar decisões de negócio das evidências disponíveis no código.
+Para PMs e POs que querem trabalhar com IA sobre seus materiais e problemas do dia a dia. Comece pela tarefa que precisa concluir. As skills ajudam a esclarecer o contexto, aplicar métodos quando fazem sentido e produzir artefatos revisáveis.
 
-O pacote reúne sete skills em português, guias de instalação e exemplos. O trabalho continua exigindo contexto de negócio, leitura crítica e validação com engenharia.
+Não é necessário ter código para começar. Uma lista de iniciativas, um problema de usuário ou um rascunho de requisitos já pode ser a entrada.
 
-## Veja uma aplicação
+## O que você precisa fazer hoje?
 
-Comece pelo [caso de regras de negócio](examples/exemplo-regras-de-negocio.md): código de demonstração, solicitação de análise, regras esperadas, divergência com uma especificação e decisão proposta.
-
-O exemplo é didático e usa uma base fictícia incluída no repositório. Não representa um cliente, uma execução medida do Claude Code ou resultado em produção.
-
-## As sete skills
-
-| Necessidade | Skill | Saída esperada |
+| Situação | Skill | Resultado esperado |
 |---|---|---|
-| Entender um sistema pouco documentado | [code-discovery](skills/code-discovery/SKILL.md) | Mapeamento, referências ao código e perguntas abertas |
-| Recuperar regras de negócio | [business-rules-extractor](skills/business-rules-extractor/SKILL.md) | Regras, evidências e divergências com documentos |
-| Avaliar uma nova funcionalidade | [feature-impact-analysis](skills/feature-impact-analysis/SKILL.md) | Dependências e riscos para discutir no refinamento |
-| Priorizar débito técnico | [tech-debt-evaluator](skills/tech-debt-evaluator/SKILL.md) | Hipóteses de impacto e alternativas para decisão |
-| Investigar possíveis lacunas de segurança | [security-blind-spot-reviewer](skills/security-blind-spot-reviewer/SKILL.md) | Achados para revisão técnica, sem certificação de segurança |
-| Questionar uma especificação | [spec-challenger](skills/spec-challenger/SKILL.md) | Ambiguidades, exceções e perguntas para completar o escopo |
-| Planejar um sistema novo | [system-bootstrap-architect](skills/system-bootstrap-architect/SKILL.md) | Proposta de estrutura e decisões a validar antes da construção |
+| Escolher iniciativas ou negociar o escopo de uma entrega | [product-prioritization](skills/product-prioritization/SKILL.md) | Comparação com RICE ou MoSCoW, premissas, lacunas e recomendação |
+| Tornar uma ideia testável antes de desenvolver | [product-prototyping](skills/product-prototyping/SKILL.md) | Briefing, protótipo ou material para a ferramenta escolhida e roteiro de avaliação |
+| Questionar uma especificação antes do refinamento | [spec-challenger](skills/spec-challenger/SKILL.md) | Bloqueadores, decisões adiáveis e resumo do que foi esclarecido |
+| Definir um novo produto e seu MVP | [system-bootstrap-architect](skills/system-bootstrap-architect/SKILL.md) | Escopo, regras, perguntas abertas e proposta técnica proporcional ao contexto |
+| Entender regras existentes antes de mudá-las | [business-rules-extractor](skills/business-rules-extractor/SKILL.md) | Regras rastreáveis, divergências e decisões pendentes |
+| Antecipar consequências de uma mudança | [feature-impact-analysis](skills/feature-impact-analysis/SKILL.md) | Dependências, riscos e cenários para refinamento |
+| Discutir um investimento em manutenção | [tech-debt-evaluator](skills/tech-debt-evaluator/SKILL.md) | Evidências e alternativas; dados necessários para avaliar retorno |
+| Revisar requisitos e possíveis lacunas de segurança | [security-blind-spot-reviewer](skills/security-blind-spot-reviewer/SKILL.md) | Questões e achados para revisão especializada |
 
-## Comece a usar
+[code-discovery](skills/code-discovery/SKILL.md) permanece como apoio opcional para quem precisa entender uma base existente. As nove skills funcionam individualmente; não é necessário executar uma sequência inteira.
 
-1. Siga o guia de instalação para [Windows](guia-instalacao/01-instalar-windows.md) ou [Mac](guia-instalacao/02-instalar-mac.md).
-2. Confira os [primeiros passos](guia-instalacao/03-primeiros-passos-claude-code.md) e o [guia de instalação das skills](guia-instalacao/04-instalar-a-skill.md).
-3. Trabalhe em uma base que você tenha autorização para analisar. Defina escopo, destino dos relatórios e permissões da ferramenta.
-4. Escolha uma pergunta pequena e confira as referências retornadas antes de ampliar a investigação.
+## Experimente dois fluxos
 
-Exemplo de solicitação:
+### Priorizar com dados incompletos
 
-> Use a skill business-rules-extractor para analisar apenas examples/checkout-demo/checkout.py e comparar com examples/checkout-demo/politica-legada.md. Apresente as regras observadas, as divergências e as perguntas de produto. Responda nesta conversa, sem alterar arquivos. Não presuma que a documentação antiga representa a política vigente.
+> Use product-prioritization. Precisamos melhorar a ativação neste trimestre. Tenho três iniciativas no arquivo iniciativas.md. Verifique se RICE faz sentido, mostre o que falta e compare apenas os itens com dados suficientes. Não invente alcance nem esforço. Responda aqui.
 
-As condições de acesso e instalação do Claude Code pertencem à ferramenta externa e podem mudar. Consulte sua documentação oficial ao configurar o ambiente.
+Comece pelo [exercício de priorização](examples/priorizacao/entrada.md). A [referência editorial](examples/priorizacao/referencia.md) permite conferir os cálculos e os limites, mas não deve ser mostrada ao modelo em uma avaliação.
 
-## Como transformar a saída em trabalho de produto
+### Prototipar para aprender
 
-1. **Pergunta:** qual decisão precisa ser tomada?
-2. **Evidência:** em quais arquivos e comportamentos a análise se apoia?
-3. **Incerteza:** o que o código não permite concluir?
-4. **Alternativas:** corrigir, documentar, investigar mais ou manter?
-5. **Validação:** quem confirma a regra e quais cenários comprovam a entrega?
+> Use product-prototyping. Quero testar se uma pessoa consegue reagendar um atendimento sem ligar para o suporte. Use o contexto em briefing.md. Prepare um protótipo local simples com dados fictícios e um roteiro de avaliação. Antes de construir, esclareça somente as regras que impedem representar o fluxo.
 
-Esse fluxo ajuda tanto na preparação de backlog quanto no entendimento de operações e soluções junto a clientes. Uma lista de achados só vira uma demanda implementável quando tem contexto, prioridade e critérios de aceite.
+Veja o [briefing de prototipação](examples/prototipacao/entrada.md). O caminho pode ser código local, um briefing para [Stitch](https://stitch.withgoogle.com/) ou uma integração disponível com Figma. Nenhuma integração é obrigatória. Consulte [ferramentas e alternativas](skills/product-prototyping/references/ferramentas.md).
 
-## O que está validado — e o que ainda precisa ser medido
+## Como começar
 
-| Material | O que permite verificar | O que não comprova |
-|---|---|---|
-| Arquivos SKILL.md | Escopo, instruções e formato de saída | Obediência garantida do modelo |
-| Evals de gatilho e notas | Casos de acionamento e raciocínio de refinamento documentado | Qualidade da investigação ou benchmark automatizado |
-| Exemplos | Estrutura de uma entrega e forma de citar evidências | Resultado obtido em cliente |
-| Demonstração de checkout | Regras de uma pequena base sintética, com testes locais | Desempenho das skills no Claude Code |
+1. Configure Claude Code pelo guia de [Windows](guia-instalacao/01-instalar-windows.md) ou [Mac](guia-instalacao/02-instalar-mac.md).
+2. [Instale apenas as skills desejadas](guia-instalacao/04-instalar-a-skill.md).
+3. Abra Claude Code na pasta com os materiais que você tem autorização para usar; siga os [primeiros passos](guia-instalacao/03-primeiros-passos-claude-code.md).
+4. Informe o problema, a decisão desejada e suas restrições. Pode pedir a resposta na conversa ou um arquivo.
+5. Confira fontes, premissas e lacunas antes de usar a saída para decidir.
 
-Veja o [protocolo de avaliação de respostas](docs/avaliacao-de-respostas.md) para registrar uma execução, conferir regras esperadas e avaliar omissões e afirmações sem evidência. Resultados só devem ser publicados após execução e revisão.
+## Métodos e ferramentas têm papéis diferentes
 
-## Limites de uso
+- **Tarefas:** priorizar, prototipar, definir escopo e preparar refinamento.
+- **Métodos:** RICE e MoSCoW apoiam decisões diferentes; a skill explica a escolha e respeita um método já definido pelo time.
+- **Ferramentas:** Claude Code trabalha com os arquivos e recursos disponíveis. Integrações ampliam os caminhos, mas não substituem contexto nem validação com usuários.
 
-As skills orientam comportamento por instruções em linguagem natural. Aprovações, permissões de escrita e isolamento precisam ser configurados na ferramenta e no ambiente; o texto de uma skill não implementa esses controles.
-
-Uma investigação pode deixar de encontrar chamadas dinâmicas, dependências externas ou comportamentos de produção. O código também pode divergir da intenção do negócio. Registre essas lacunas e valide conclusões com as pessoas responsáveis.
-
-A proposta de arquitetura da skill de bootstrap é um ponto de partida. Cada mecanismo sugerido deve ser justificado pelo problema, pelo risco e pelo custo de operação.
+**ROI e OKRs estão planejados, sem skills dedicadas nesta versão.** Veja o [plano de evolução](docs/EVOLUCAO.md). A análise de manutenção atual não equivale a um fluxo financeiro completo.
 
 ## Relação com o Code Discovery Toolkit
 
-O [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit) oferece metodologia, prompts, templates e um analisador Python que pode ser executado localmente.
+O [Code Discovery Toolkit](https://github.com/dgnoleto/code-discovery-toolkit) se concentra em investigar sistemas e levantar evidências técnicas.
 
-Este repositório organiza procedimentos em skills específicas para Claude Code. Os projetos são complementares: o toolkit ajuda a levantar sinais; as skills orientam investigação e documentação com IA.
+O Claude Code for PM se concentra no trabalho cotidiano de produto. Código é uma fonte possível, junto a requisitos, dados e contexto de negócio. Quando uma tarefa exigir investigação ampla, use o Toolkit e traga seus achados como entrada, sem repetir toda a metodologia aqui.
 
-## Outros exemplos e documentação
+## Estado da validação
 
-- [Mapeamento em Obsidian](examples/exemplo-code-discovery-obsidian.md).
-- [Blueprint de sistema](examples/exemplo-system-blueprint.md).
-- [Glossário](GLOSSARIO.md).
-- [Regras de contribuição e manutenção](CLAUDE.md).
+As skills são instruções em linguagem natural; não garantem obediência do modelo, segurança, retorno financeiro ou qualidade da decisão. Exemplos são sintéticos e referências editoriais, não resultados de clientes nem execuções medidas do Claude Code.
 
-Ao propor mudanças, descreva a necessidade do usuário, um exemplo de entrada, a saída desejada e como avaliar se a alteração ajudou. Para modificar skills e avaliações existentes, siga as regras de manutenção do repositório.
+Os casos de gatilho documentam quando acionar uma skill. Os testes Python verificam somente o checkout didático. O [protocolo de avaliação](docs/avaliacao-de-respostas.md) distingue essas verificações da avaliação de respostas e inclui os novos fluxos. Não há benchmark de qualidade publicado nesta versão.
 
-## Autor e referências
+## Documentação
+
+- [Caso de regras de negócio](examples/exemplo-regras-de-negocio.md)
+- [Mapeamento em Obsidian](examples/exemplo-code-discovery-obsidian.md)
+- [Exemplo de planejamento de sistema](examples/exemplo-system-blueprint.md)
+- [Glossário](GLOSSARIO.md)
+- [Manutenção e contribuição](CLAUDE.md)
+- [Mudanças de posicionamento e compatibilidade](docs/EVOLUCAO.md)
 
 **Danilo Nolêto** — produto, discovery técnico, integrações e IA aplicada.  
 [Perfil](https://github.com/dgnoleto) · [LinkedIn](https://www.linkedin.com/in/danilog-noleto)

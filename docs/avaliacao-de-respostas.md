@@ -45,3 +45,26 @@ Repita em sessões independentes e mantenha os resultados desfavoráveis. Para c
 A demonstração é pequena e pública: pode servir de exercício, mas não sustenta conclusões gerais sobre sistemas reais. Antes de divulgar uma taxa de qualidade, amplie os casos, inclua ambiguidades e dependências ausentes e registre como as respostas foram julgadas.
 
 Os testes Python verificam o comportamento do exemplo; os arquivos de gatilho verificam outro aspecto. Nenhum dos dois substitui executar e revisar a resposta da skill.
+
+
+## Novos fluxos de produto
+
+Não há resultados de execução publicados para priorização e prototipação. Os critérios abaixo são um plano de avaliação.
+
+### Priorização
+
+Copie somente [a entrada](../examples/priorizacao/entrada.md) e a pasta completa da skill para o ambiente avaliado. O revisor, fora desse ambiente, usa [a referência](../examples/priorizacao/referencia.md).
+
+Verifique contas, unidades, confiança como fração, tratamento de dados ausentes, ordem parcial e obrigação fora do score. Reprove afirmações de alcance/ROI inventadas mesmo que a tabela pareça convincente. Em outro caso, avalie MoSCoW com todos os itens inicialmente marcados como Must e dependências entre categorias.
+
+### Prototipação
+
+Copie somente [a entrada](../examples/prototipacao/entrada.md) e a pasta completa da skill para uma pasta isolada. O revisor usa [os critérios](../examples/prototipacao/referencia.md). Avalie artefato, navegação, estados, roteiro e respeito às ações autorizadas. Registre quais ferramentas estavam realmente disponíveis.
+
+### Comparação e interpretação
+
+Para cada caso, faça sessões independentes com e sem skill, usando o mesmo modelo, materiais, permissões e solicitação. O grupo sem skill não deve receber seu conteúdo nem instrução de invocação. Registre diferenças necessárias no prompt de ativação. Considere o custo de perguntas adicionais e o tempo até uma entrega útil.
+
+Não forneça gabaritos ao modelo avaliado. Conte critérios atendidos, parciais e não atendidos; anexe trechos e erros, sem combinar tudo em uma nota que esconda afirmações inventadas. Repita antes de generalizar. Cálculos conferidos e links válidos são verificações estruturais, não benchmark comportamental.
+
+Os evals históricos das skills revisadas foram preservados. Devem ser revistos em uma tarefa específica antes de alegar cobertura do novo escopo. A skill de bootstrap ainda não tem suíte histórica de gatilhos.

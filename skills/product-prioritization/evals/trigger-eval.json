@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Prioriza estas iniciativas com RICE para o trimestre.",
+    "should_trigger": true
+  },
+  {
+    "query": "Ajuda a decidir o que cabe no MVP usando MoSCoW.",
+    "should_trigger": true
+  },
+  {
+    "query": "Tenho alcance e esforço, mas a confiança está ausente. Como comparar?",
+    "should_trigger": true
+  },
+  {
+    "query": "O time classificou tudo como Must. Revise o escopo.",
+    "should_trigger": true
+  },
+  {
+    "query": "Compare estes dois projetos com as estimativas do arquivo.",
+    "should_trigger": true
+  },
+  {
+    "query": "A maior pontuação depende de uma iniciativa menor. Como organizar?",
+    "should_trigger": true
+  },
+  {
+    "query": "Monte uma proposta de prioridade e deixe as lacunas explícitas.",
+    "should_trigger": true
+  },
+  {
+    "query": "Já escolhemos RICE; não mude o método, explique as limitações.",
+    "should_trigger": true
+  },
+  {
+    "query": "Calcule o ROI financeiro deste investimento.",
+    "should_trigger": false
+  },
+  {
+    "query": "Defina nossos OKRs do trimestre.",
+    "should_trigger": false
+  },
+  {
+    "query": "Crie um protótipo de checkout.",
+    "should_trigger": false
+  },
+  {
+    "query": "Implemente o primeiro item do backlog.",
+    "should_trigger": false
+  },
+  {
+    "query": "Investigue código morto neste repositório.",
+    "should_trigger": false
+  },
+  {
+    "query": "Faça uma auditoria de segurança.",
+    "should_trigger": false
+  },
+  {
+    "query": "Explique como funciona este cálculo no código.",
+    "should_trigger": false
+  },
+  {
+    "query": "Publique esta ordem já aprovada no Jira.",
+    "should_trigger": false
+  }
+]

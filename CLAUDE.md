@@ -1,67 +1,29 @@
-# CLAUDE.md — Instruções para o Claude Code neste repositório
+# Manutenção do Claude Code for PM
 
-Este arquivo instrui o Claude Code sobre como se comportar ao trabalhar **neste repositório** (`claude-code-for-pm`). Leia antes de qualquer ação.
+Este repositório distribui fluxos de trabalho de produto em skills para Claude Code. O idioma de conteúdo é português. Exemplos são didáticos; não confundir material editorial com avaliação executada ou sistema de produção.
 
----
+## Escopo e autorização
 
-## O que é este repositório
+1. Proponha mudanças de comportamento antes de modificar skills existentes. A aprovação da proposta na conversa autoriza os ajustes correspondentes; não peça a mesma confirmação novamente.
+2. Não altere evals históricos nem o glossário sem pedido específico. Novas skills devem trazer seus próprios casos, identificados como não executados. Não reescreva evidência antiga para adequá-la ao novo comportamento.
+3. Alterar arquivos localmente não autoriza publicar, enviar mensagens, ativar integrações ou modificar outros repositórios. Respeite a autorização da tarefa.
 
-Este é um repositório de **Skills para Claude Code voltadas a PMs e POs**. Ele contém arquivos de instrução (`SKILL.md`), documentação de onboarding (`guia-instalacao/`), evals de gatilho (`evals/`) e um glossário técnico (`GLOSSARIO.md`).
+## Padrão de uma skill
 
-Não é um repositório de código de produção. Nenhum arquivo aqui é executável em ambiente de produção. A linguagem principal é **português**.
+- Pasta com nome em inglês, minúsculas e hífens; conteúdo em português.
+- `SKILL.md` com `name`, `description` e `metadata.version` em YAML. A versão é metadado editorial, não controle de comportamento do Claude Code.
+- Fluxo em etapas que aproveita contexto já fornecido. Confirmação humana deve resolver uma lacuna ou decisão real, não repetir informações disponíveis.
+- Saída na conversa por padrão; arquivo quando solicitado. Markdown padrão e orientação para Obsidian quando pertinente.
+- `CHANGELOG.md`: incrementar versão a cada mudança de comportamento e registrar o motivo.
+- Para nova skill: `evals/trigger-eval.json` com pelo menos 8 positivos e 8 negativos, incluindo quase-acertos, e `evals/notas-refinamento.md` com critérios e estado da avaliação.
+- Referências dentro da pasta da skill quando necessárias à execução. Não depender de arquivos da raiz para funcionar após instalação individual.
 
----
+## Qualidade
 
-## Regras de comportamento neste repositório
+Organize pelo trabalho do PM, não por uma lista de frameworks. Não invente dados, ganhos, pesquisas, aprovações ou resultados. Distinga evidência, hipótese, estimativa e decisão. Trate ferramentas como opcionais e verifique capacidades reais antes de prometer operações.
 
-### 1. Nunca modificar um SKILL.md sem proposta e confirmação explícita
+Preserve nomes existentes nesta revisão. Capacidades planejadas devem estar claramente separadas das disponíveis. Não duplicar no pacote a metodologia geral do Code Discovery Toolkit.
 
-Qualquer alteração em um arquivo `SKILL.md` existente — incluindo a `description`, o fluxo de etapas, os princípios ou os modelos de saída — deve ser **proposta primeiro** com justificativa clara. Só execute a alteração após confirmação explícita do usuário.
+## Verificação
 
-### 2. Ao atualizar uma skill, sempre incrementar a versão e registrar no CHANGELOG
-
-Se uma skill for atualizada, dois passos são obrigatórios:
-- Incrementar o campo `version` no frontmatter do `SKILL.md` (ex: `1.0` → `1.1`)
-- Adicionar uma entrada no `CHANGELOG.md` da skill com a data e o que mudou
-
-### 3. Nunca modificar arquivos de evals sem instrução explícita
-
-Os arquivos `evals/trigger-eval.json` e `evals/notas-refinamento.md` são documentação de raciocínio — não são gerados automaticamente. Só altere se o usuário pedir especificamente.
-
-### 4. Ao criar uma nova skill, seguir o padrão do PM Skill Pack
-
-Toda skill nova deve ter:
-- `SKILL.md` com frontmatter contendo `version`, `name` e `description`
-- Fluxo em etapas numeradas com gates humanos de confirmação de escopo e destino
-- Saída em Markdown padrão **e** Obsidian Flavored Markdown
-- Pasta `evals/` com `trigger-eval.json` (mínimo 8 positivos + 8 negativos, incluindo quase-acertos) e `notas-refinamento.md`
-- `CHANGELOG.md` com a entrada da versão inicial
-
-### 5. Nunca alterar o GLOSSARIO.md sem proposta prévia
-
-O glossário tem estrutura e tom deliberados. Qualquer adição ou edição deve ser proposta com o trecho exato antes de ser executada.
-
-### 6. Manter o português como língua padrão de todo o conteúdo
-
-Todos os arquivos de conteúdo deste repositório estão em português. Ao criar ou editar qualquer arquivo, use português — exceto nomes técnicos de campos, comandos de código ou termos que não têm tradução convencional (ex: `frontmatter`, `SKILL.md`, `trigger`).
-
----
-
-## O que você pode fazer livremente
-
-- Ler qualquer arquivo do repositório para responder perguntas
-- Sugerir melhorias, novos conteúdos ou ajustes — desde que apresente a proposta antes de executar
-- Gerar rascunhos de novos `SKILL.md`, `CHANGELOG.md` ou entradas de glossário para revisão do usuário
-
----
-
-## Referência rápida
-
-| Ação | Precisa de confirmação? |
-|---|---|
-| Ler qualquer arquivo | Não |
-| Propor mudança em SKILL.md | Não (proposta é bem-vinda) |
-| Executar mudança em SKILL.md | Sim — sempre |
-| Criar nova skill completa | Sim — aprovar estrutura antes |
-| Alterar trigger-eval.json | Sim — sempre |
-| Incrementar versão + CHANGELOG | Obrigatório junto com qualquer edição de SKILL.md |
+Confira frontmatter, referências locais, exemplos numéricos e mudanças de versão. Os testes do checkout só verificam sua base sintética. Avaliações do comportamento no Claude Code devem seguir `docs/avaliacao-de-respostas.md`, com transcrições e limitações.

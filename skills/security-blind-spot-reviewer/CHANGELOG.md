@@ -1,5 +1,11 @@
 # Changelog — `security-blind-spot-reviewer`
 
+## 1.1 — 2026-09-23
+
+- Mantém a capacidade como apoio à rotina de produto.
+- Reutiliza escopo e autorização fornecidos; permite saída na conversa.
+- Padroniza versão em metadata.version e limites de evidência.
+
 ## v1.0 — 2026-07-26
 - Versão inicial publicada no PM Skill Pack
 - Gates humanos de confirmação de escopo e destino antes de qualquer leitura profunda
